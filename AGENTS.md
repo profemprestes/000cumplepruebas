@@ -10,29 +10,32 @@ When using `list_files`, `grep`, or scanning the directory structure, the follow
 - `.next/` (Next.js build artifacts)
 - `out/`, `build/`, `dist/` (General build artifacts)
 - `pnpm-lock.yaml` (Large lock file)
+- `next-env.d.ts` (Next.js auto-generated types)
+- `.env*` (Environment variables)
 - `public/**/*.png`, `public/**/*.jpg`, `public/**/*.jpeg`, `public/**/*.gif`, `public/**/*.ico`, `public/**/*.webp`, `public/**/*.mp4`, `public/**/*.mp3`, `public/**/*.wav` (Heavy media files)
 - `*.log` (Log files)
 - `.git/` (Git metadata)
-- `.env*` (Environment variables)
-- `next-env.d.ts` (Auto-generated TypeScript config)
 
 ## 🛠️ Code Conventions & Instructions
 
 When working on this repository, please adhere to the following guidelines:
 
 1. **Framework & Architecture**:
-   - This is a **Next.js** project using the **App Router** (`src/app/`). All new pages and layouts should follow the App Router conventions. All application code must strictly reside under the `/src` directory.
-   - Components must be placed in `/src/components` and use **`kebab-case`** for file names (e.g., `my-component.tsx`).
+   - This is a **Next.js** project using the **App Router** (`src/app/`). All new pages and layouts should follow the App Router conventions.
    - Use **React Server Components** by default, and only add `'use client'` directive at the top of the file when client-side interactivity (hooks, state, event listeners) is strictly necessary.
+   - Todo bajo `/src`.
+   - Componentes en `/src/components` con nombrado kebab-case (ej: `my-component.tsx`).
+   - Rendimiento: Prioriza Server Components. Usa `nuqs` para estado en URL. Imágenes siempre en WebP con lazy loading.
 
 2. **Styling & UI**:
    - **Tailwind CSS** is the primary styling tool. Use Tailwind utility classes instead of writing custom CSS whenever possible.
    - The project uses a set of pre-built UI components based on **Radix UI** located in `src/components/ui/`. Reuse these components (e.g., `Button`, `Dialog`, `Card`) before creating new fundamental UI elements.
+   - Mobile-first estricto con Tailwind. Usa Framer Motion para animaciones. Si faltan imágenes de prueba, usa placekitten.com.
 
 3. **Language & Typings**:
-   - Write all code in **TypeScript** (`.ts`, `.tsx`). Define components as pure functions using the `function` keyword (`export function MyComponent() { ... }`).
-   - Prefer **`interface`** over `type` for object shapes. **NEVER use `enum`** (use `const` objects with `as const` or `Map` instead).
+   - Write all code in **TypeScript** (`.ts`, `.tsx`).
    - Provide proper type definitions and interfaces for components and API responses. Avoid using `any`.
+   - TypeScript: Interfaces sobre Types, nada de Enums (usa Maps). Funciones puras con palabra clave `function`.
 
 4. **Package Manager**:
    - Use **`pnpm`** for package management.
@@ -48,12 +51,6 @@ When working on this repository, please adhere to the following guidelines:
 7. **Theme & Assets**:
    - Theme colors and custom fonts (Luckiest Guy, Fredoka, Press Start 2P) are configured in `src/app/layout.tsx`. Keep the styling consistent with this "Nivel 9" interactive mission/adventure theme.
 
-8. **Performance & Interactive UI (Mobile-First)**:
-   - Always prioritize Mobile-First responsive design via Tailwind.
-   - For state synchronized with the URL, strictly use the **`nuqs`** library.
-   - All images must be in **WebP** format and include lazy loading. For missing test/placeholder images, use `placekitten.com`.
-   - Complex interactive animations should exclusively use **`framer-motion`**.
-
 ## ✅ Pre-commit / Verification steps
 
 Before finalizing any plan and submitting, verify that:
@@ -61,10 +58,3 @@ Before finalizing any plan and submitting, verify that:
 - You have compiled the code or run a build check if possible.
 - Linting (`pnpm lint`) passes.
 - No type errors exist.
-
-## 🎨 Visual Identity
-
-- Use Tailwind classes and predefined variables from `src/styles.css` instead of hardcoded arbitrary hex values, `oklch`, or `rgba` variables (e.g., `bg-night`, `text-golden-coin`, `border-night`, etc.).
-- Avoid using `style={{ ... }}` inline properties. Rely on Tailwind classes (`bg-card`, `text-card-foreground`, etc.).
-- Enforce the use of standard UI design concepts by using the `voxel-card` and `voxel-btn` classes, along with proper modifier classes (like `voxel-btn-coin` or `voxel-btn-teddy`).
-- Standard shadows should be defined with CSS variables mapped to standard classes (e.g. `shadow-[6px_6px_0_var(--color-teddy-brown)]` or `drop-shadow-[4px_4px_0_var(--color-night)]`), replacing raw values (`#000`, `rgba(0,0,0,0.3)`, etc.).
