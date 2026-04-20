@@ -95,7 +95,7 @@ export default function Index() {
 
         {scene === 'inventory' && (
           <GiftInventory
-            onRestart={() => {
+            onClose={() => {
               setHero(null)
               goto('loader')
             }}

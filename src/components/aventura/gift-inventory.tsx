@@ -7,7 +7,7 @@ export function GiftInventory({ onClose }: { onClose: () => void }) {
     <div className="bg-night/95 min-h-screen w-full px-4 py-8 sm:px-6 flex flex-col items-center justify-center relative overflow-hidden">
 
       {/* Fondo con leve textura/partículas */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 to-transparent opacity-50" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white/5 to-transparent opacity-50" />
 
       <header className="relative z-10 mx-auto max-w-3xl text-center mb-8">
         <div className="pixel-text bg-teddy-brown inline-flex items-center gap-2 rounded-md px-4 py-2 text-[10px] tracking-widest text-white uppercase border-2 border-white/20 shadow-[3px_3px_0_#000] mb-4">
@@ -63,25 +63,13 @@ export function GiftInventory({ onClose }: { onClose: () => void }) {
         })}
       </div>
 
-      {/* Footer / Aviso amigable */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-        className="relative z-10 mt-8 text-center bg-golden-coin/10 border-2 border-golden-coin border-dashed rounded-xl p-4 max-w-2xl w-full"
-      >
-        <p className="font-bold text-golden-coin text-sm sm:text-base drop-shadow-md">
-          💛 ¡Ojo, bo! Las ganas de saltar y divertirse valen mucho más que cualquier ítem legendario.
-        </p>
-      </motion.div>
-
       {/* Botón de Salida */}
       <motion.button
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8 }}
         onClick={onClose}
-        className="relative z-10 mt-8 bg-rojo text-white border-4 border-night rounded-xl px-8 py-3 font-display uppercase tracking-widest text-lg shadow-[4px_6px_0_#000] hover:translate-y-1 hover:shadow-[4px_2px_0_#000] active:translate-y-2 active:shadow-none transition-all"
+        className="relative z-10 mt-8 bg-destructive text-destructive-foreground border-4 border-night rounded-xl px-8 py-3 font-display uppercase tracking-widest text-lg shadow-[4px_6px_0_#000] hover:translate-y-1 hover:shadow-[4px_2px_0_#000] active:translate-y-2 active:shadow-none transition-all"
       >
         ❌ Cerrar Inventario
       </motion.button>

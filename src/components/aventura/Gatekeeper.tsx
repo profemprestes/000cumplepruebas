@@ -26,10 +26,10 @@ export function Gatekeeper({
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-white/95 backdrop-blur-sm border-4 border-teddy-brown rounded-xl p-4 sm:p-6 mt-6 mx-auto shadow-[6px_6px_0_var(--color-teddy-brown)]"
+          className="bg-white/95 backdrop-blur-sm border-4 border-teddy-brown rounded-xl p-4 sm:p-6 mt-6 mx-auto shadow-[6px_6px_0_var(--color-teddy-brown)] max-w-lg"
         >
-          <p className="text-teddy-brown font-amble text-base sm:text-lg font-bold leading-relaxed">
-            "¡Che, despertate! Facu acaba de desbloquear el Nivel 9 en KBOOM. ¿Quién solicita acceso al servidor?"
+          <p className="text-teddy-brown font-amble text-base sm:text-lg font-bold leading-relaxed text-center">
+            "¡Facu desbloqueó el Nivel 9 en KBOOM! ¿Quién se suma a la partida?"
           </p>
         </motion.div>
       </header>
