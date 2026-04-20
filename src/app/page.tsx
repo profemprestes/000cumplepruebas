@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+'use client';
+
 import { useState } from "react";
 import { Loader } from "@/components/aventura/Loader";
 import { Gatekeeper } from "@/components/aventura/Gatekeeper";
@@ -13,25 +14,6 @@ import { AchievementToast } from "@/components/aventura/AchievementToast";
 import { useAchievements } from "@/components/aventura/useAchievements";
 import type { Hero } from "@/lib/heroes";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Gran Facu Aventura V2 — Nivel 9" },
-      {
-        name: "description",
-        content:
-          "Invitación interactiva al cumple de Facu — Nivel 9. KBOOM, domingo 24 de mayo, 18:30 a 21:00 hs.",
-      },
-      { property: "og:title", content: "Gran Facu Aventura V2 — Nivel 9" },
-      {
-        property: "og:description",
-        content: "Sumate al Nivel 9 de Facu — KBOOM, domingo 24 de mayo.",
-      },
-    ],
-  }),
-  component: Index,
-});
-
 type Scene =
   | "loader"
   | "gatekeeper"
@@ -42,7 +24,7 @@ type Scene =
   | "adult-panel"
   | "inventory";
 
-function Index() {
+export default function Index() {
   const [scene, setScene] = useState<Scene>("loader");
   const [hero, setHero] = useState<Hero | null>(null);
   const { current, unlock } = useAchievements();
