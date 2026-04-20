@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import '../styles.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'GRAN FACU AVENTURA — ¡Estás Invitado!',
   description:
     '¡Facu te invita a su cumpleaños Nivel 9! Una misión interactiva en KBOOM. Domingo 24 de mayo desde las 18:30hs.',
