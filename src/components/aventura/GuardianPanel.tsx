@@ -123,7 +123,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
           rel="noreferrer"
           className="voxel-btn voxel-btn-grass w-full sm:w-auto"
         >
-          ✅ RSVP por WhatsApp
+          ✅ Confirmar asistencia por WhatsApp
           <ExternalLink className="h-4 w-4" />
         </a>
         <button

@@ -32,13 +32,13 @@ export function AchievementToast({
             </div>
             <div className="min-w-0 flex-1">
               <div className="pixel-text text-golden-coin text-[10px] tracking-widest uppercase">
-                Achievement Unlocked
+                ¡LOGRO DESBLOQUEADO! 🏆
               </div>
               <div className="font-display text-base leading-tight">
                 {achievement.title}
               </div>
               {achievement.description && (
-                <div className="text-xs opacity-80">
+                <div className="text-xs opacity-80 mt-1">
                   {achievement.description}
                 </div>
               )}
