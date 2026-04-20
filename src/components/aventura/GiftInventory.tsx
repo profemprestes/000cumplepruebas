@@ -1,16 +1,16 @@
-import { motion } from "framer-motion";
-import { GIFTS, RARITY_STYLES } from "@/lib/gifts";
-import { RotateCcw } from "lucide-react";
-import { FACU_HERO_IMAGE } from "@/lib/heroes";
+import { motion } from 'framer-motion'
+import { GIFTS, RARITY_STYLES } from '@/lib/gifts'
+import { RotateCcw } from 'lucide-react'
+import { FACU_HERO_IMAGE } from '@/lib/heroes'
 
 export function GiftInventory({ onRestart }: { onRestart: () => void }) {
   return (
     <div className="bg-night-grid min-h-screen w-full px-5 py-8 text-white">
       <header className="mx-auto max-w-3xl text-center">
-        <div className="pixel-text mx-auto inline-block rounded-md bg-golden-coin px-3 py-1 text-[10px] uppercase tracking-widest text-night">
+        <div className="pixel-text bg-golden-coin text-night mx-auto inline-block rounded-md px-3 py-1 text-[10px] tracking-widest uppercase">
           Inventario del Héroe
         </div>
-        <h2 className="mt-3 font-display text-3xl text-golden-coin sm:text-4xl">
+        <h2 className="font-display text-golden-coin mt-3 text-3xl sm:text-4xl">
           EL INVENTARIO DE FACU 🎒
         </h2>
         <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-white/80">
@@ -22,7 +22,7 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
 
       <div className="mx-auto mt-6 grid max-w-2xl grid-cols-2 gap-3">
         {GIFTS.map((g, i) => {
-          const r = RARITY_STYLES[g.rarity];
+          const r = RARITY_STYLES[g.rarity]
           return (
             <motion.div
               key={g.id}
@@ -31,8 +31,8 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
               transition={{ delay: i * 0.06 }}
               className={`voxel-card voxel-card-hover flex flex-col items-center gap-2 p-4 ring-4 ring-inset ${r.ring} transition-all duration-200`}
               style={{
-                background: "oklch(0.24 0.05 260)",
-                color: "oklch(0.99 0 0)",
+                background: 'oklch(0.24 0.05 260)',
+                color: 'oklch(0.99 0 0)',
               }}
             >
               <div className="text-5xl">{g.icon}</div>
@@ -40,13 +40,13 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
                 {g.name}
               </div>
               <div
-                className={`pixel-text text-[10px] uppercase tracking-widest ${r.text}`}
+                className={`pixel-text text-[10px] tracking-widest uppercase ${r.text}`}
               >
                 {r.label}
               </div>
               <p className="text-center text-xs opacity-85">{g.description}</p>
             </motion.div>
-          );
+          )
         })}
       </div>
 
@@ -61,17 +61,17 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
             src={FACU_HERO_IMAGE}
             alt="Facu"
             animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
             className="h-40 w-40 object-contain drop-shadow-[4px_4px_0_oklch(0.85_0.16_90/0.5)] sm:h-48 sm:w-48"
           />
-          <div className="pixel-text absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border-2 border-night bg-golden-coin px-2 py-1 text-[9px] uppercase tracking-widest text-night">
+          <div className="pixel-text border-night bg-golden-coin text-night absolute -top-2 left-1/2 -translate-x-1/2 rounded-md border-2 px-2 py-1 text-[9px] tracking-widest whitespace-nowrap uppercase">
             ¡Te esperamos!
           </div>
         </div>
-        <h3 className="font-display text-2xl text-golden-coin sm:text-3xl">
+        <h3 className="font-display text-golden-coin text-2xl sm:text-3xl">
           MISIÓN COMPLETADA
         </h3>
-        <p className="max-w-md text-sm italic text-white/85">
+        <p className="max-w-md text-sm text-white/85 italic">
           💛 ¡Ojo, bo! Las ganas de saltar valen mucho más que cualquier ítem
           legendario.
         </p>
@@ -81,5 +81,5 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
         </button>
       </motion.div>
     </div>
-  );
+  )
 }

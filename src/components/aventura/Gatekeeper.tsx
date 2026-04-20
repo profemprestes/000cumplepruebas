@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
-import { Gamepad2, Shield } from "lucide-react";
+import { motion } from 'framer-motion'
+import { Gamepad2, Shield } from 'lucide-react'
 
 export function Gatekeeper({
   onChoose,
 }: {
-  onChoose: (mode: "kid" | "adult") => void;
+  onChoose: (mode: 'kid' | 'adult') => void
 }) {
   return (
     <div className="bg-cloud-soft relative flex min-h-screen w-full flex-col">
@@ -12,11 +12,11 @@ export function Gatekeeper({
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="font-display text-3xl text-night drop-shadow-[3px_3px_0_oklch(0.99_0_0)] sm:text-5xl"
+          className="font-display text-night text-3xl drop-shadow-[3px_3px_0_oklch(0.99_0_0)] sm:text-5xl"
         >
           ¡Misión Detectada!
         </motion.h1>
-        <p className="mx-auto mt-2 max-w-md text-sm text-night/80 sm:text-base">
+        <p className="text-night/80 mx-auto mt-2 max-w-md text-sm sm:text-base">
           Antes de entrar al Nivel 9 de <b>Facu</b>, elegí tu rol.
         </p>
       </header>
@@ -27,7 +27,7 @@ export function Gatekeeper({
           title="Modo Aventurero"
           subtitle="Para los héroes de 9-11 años"
           color="sky"
-          onClick={() => onChoose("kid")}
+          onClick={() => onChoose('kid')}
           delay={0.1}
         />
         <ModeCard
@@ -35,12 +35,12 @@ export function Gatekeeper({
           title="Modo Guardián"
           subtitle="Info logística directa para padres"
           color="teddy"
-          onClick={() => onChoose("adult")}
+          onClick={() => onChoose('adult')}
           delay={0.25}
         />
       </div>
     </div>
-  );
+  )
 }
 
 function ModeCard({
@@ -51,38 +51,38 @@ function ModeCard({
   onClick,
   delay,
 }: {
-  icon: React.ReactNode;
-  title: string;
-  subtitle: string;
-  color: "sky" | "teddy";
-  onClick: () => void;
-  delay: number;
+  icon: React.ReactNode
+  title: string
+  subtitle: string
+  color: 'sky' | 'teddy'
+  onClick: () => void
+  delay: number
 }) {
   const bg =
-    color === "sky" ? "bg-sky-blue text-night" : "bg-teddy-brown text-white";
+    color === 'sky' ? 'bg-sky-blue text-night' : 'bg-teddy-brown text-white'
   return (
     <motion.button
       initial={{ y: 30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ delay, duration: 0.5, ease: "easeOut" }}
+      transition={{ delay, duration: 0.5, ease: 'easeOut' }}
       onClick={onClick}
       className={`voxel-card voxel-card-hover relative w-full max-w-md overflow-hidden p-6 text-left ${bg}`}
     >
       <div className="absolute inset-0 opacity-0 transition-opacity duration-300 hover:opacity-100">
-        <div className="absolute inset-0 animate-shine" />
+        <div className="animate-shine absolute inset-0" />
       </div>
       <div className="relative flex flex-col gap-3">
         <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-white/25 backdrop-blur-sm">
           {icon}
         </div>
-        <h2 className="font-display text-2xl uppercase tracking-wide sm:text-3xl">
+        <h2 className="font-display text-2xl tracking-wide uppercase sm:text-3xl">
           {title}
         </h2>
         <p className="text-sm opacity-90 sm:text-base">{subtitle}</p>
-        <div className="pixel-text mt-2 text-[10px] uppercase tracking-widest opacity-80">
+        <div className="pixel-text mt-2 text-[10px] tracking-widest uppercase opacity-80">
           ▶ Entrar
         </div>
       </div>
     </motion.button>
-  );
+  )
 }

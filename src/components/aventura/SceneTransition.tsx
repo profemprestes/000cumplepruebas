@@ -1,12 +1,12 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, AnimatePresence } from 'framer-motion'
+import { ReactNode } from 'react'
 
 export function SceneTransition({
   sceneKey,
   children,
 }: {
-  sceneKey: string;
-  children: ReactNode;
+  sceneKey: string
+  children: ReactNode
 }) {
   return (
     <AnimatePresence mode="wait">
@@ -21,5 +21,5 @@ export function SceneTransition({
         {children}
       </motion.div>
     </AnimatePresence>
-  );
+  )
 }

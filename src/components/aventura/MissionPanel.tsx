@@ -1,46 +1,46 @@
-import { motion } from "framer-motion";
-import { Calendar, MapPin, Clock, Shirt, ExternalLink } from "lucide-react";
-import { EVENT, RSVP_KIDS_MSG, whatsappLink } from "@/lib/event";
-import type { Hero } from "@/lib/heroes";
-import { Countdown } from "./Countdown";
+import { motion } from 'framer-motion'
+import { Calendar, MapPin, Clock, Shirt, ExternalLink } from 'lucide-react'
+import { EVENT, RSVP_KIDS_MSG, whatsappLink } from '@/lib/event'
+import type { Hero } from '@/lib/heroes'
+import { Countdown } from './Countdown'
 
 export function MissionPanel({
   hero,
   onContinue,
 }: {
-  hero: Hero | null;
-  onContinue: () => void;
+  hero: Hero | null
+  onContinue: () => void
 }) {
   const objectives = [
     {
       icon: <MapPin className="h-5 w-5" />,
-      label: "Ubicación",
+      label: 'Ubicación',
       value: `${EVENT.venue} — ${EVENT.address}`,
     },
     {
       icon: <Calendar className="h-5 w-5" />,
-      label: "Fecha",
+      label: 'Fecha',
       value: EVENT.dateLabel,
     },
     {
       icon: <Clock className="h-5 w-5" />,
-      label: "Horario",
+      label: 'Horario',
       value: EVENT.timeLabel,
     },
     {
       icon: <Shirt className="h-5 w-5" />,
-      label: "Ítem obligatorio",
+      label: 'Ítem obligatorio',
       value: EVENT.condition,
     },
-  ];
+  ]
 
   return (
     <div className="bg-night-grid min-h-screen w-full px-5 py-8 text-white">
       <header className="mx-auto max-w-2xl text-center">
-        <div className="pixel-text mx-auto inline-block rounded-md bg-golden-coin px-3 py-1 text-[10px] uppercase tracking-widest text-night">
+        <div className="pixel-text bg-golden-coin text-night mx-auto inline-block rounded-md px-3 py-1 text-[10px] tracking-widest uppercase">
           Panel de Misión · Nivel {EVENT.level}
         </div>
-        <h2 className="mt-3 font-display text-3xl text-golden-coin sm:text-4xl">
+        <h2 className="font-display text-golden-coin mt-3 text-3xl sm:text-4xl">
           OBJETIVOS DEL NIVEL
         </h2>
         {hero && (
@@ -51,7 +51,7 @@ export function MissionPanel({
               className="h-10 w-10 object-contain"
             />
             <p className="text-sm text-white/80">
-              Héroe equipado:{" "}
+              Héroe equipado:{' '}
               <span className="font-display text-golden-coin">{hero.name}</span>
             </p>
           </div>
@@ -59,7 +59,7 @@ export function MissionPanel({
       </header>
 
       <div className="mx-auto mt-8 max-w-2xl">
-        <div className="pixel-text mb-3 text-center text-[10px] uppercase tracking-widest text-white/70">
+        <div className="pixel-text mb-3 text-center text-[10px] tracking-widest text-white/70 uppercase">
           ⏳ Tiempo hasta el inicio
         </div>
         <Countdown targetISO={EVENT.dateISO} />
@@ -74,15 +74,15 @@ export function MissionPanel({
             transition={{ delay: i * 0.08 }}
             className="voxel-card flex items-center gap-3 p-4"
             style={{
-              background: "oklch(0.24 0.05 260)",
-              color: "oklch(0.99 0 0)",
+              background: 'oklch(0.24 0.05 260)',
+              color: 'oklch(0.99 0 0)',
             }}
           >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-sky-blue text-night">
+            <div className="bg-sky-blue text-night flex h-11 w-11 shrink-0 items-center justify-center rounded-md">
               {o.icon}
             </div>
             <div className="min-w-0">
-              <div className="pixel-text text-[10px] uppercase tracking-widest text-golden-coin">
+              <div className="pixel-text text-golden-coin text-[10px] tracking-widest uppercase">
                 {o.label}
               </div>
               <div className="text-sm sm:text-base">{o.value}</div>
@@ -109,5 +109,5 @@ export function MissionPanel({
         </button>
       </div>
     </div>
-  );
+  )
 }
