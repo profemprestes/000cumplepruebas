@@ -130,7 +130,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
           onClick={onContinue}
           className="voxel-btn voxel-btn-coin w-full sm:w-auto"
         >
-          🎁 Ver guía de regalos
+          🎁 Ver inventario
         </button>
       </div>
     </div>
