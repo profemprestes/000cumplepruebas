@@ -29,7 +29,7 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.06 }}
-              className={`voxel-card flex flex-col items-center gap-2 p-4 ring-4 ring-inset ${r.ring}`}
+              className={`voxel-card voxel-card-hover flex flex-col items-center gap-2 p-4 ring-4 ring-inset ${r.ring} transition-all duration-200`}
               style={{
                 background: "oklch(0.24 0.05 260)",
                 color: "oklch(0.99 0 0)",
