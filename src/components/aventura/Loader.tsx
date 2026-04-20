@@ -28,7 +28,10 @@ export function Loader({ onStart }: { onStart: () => void }) {
   }, []);
 
   useEffect(() => {
-    const idx = Math.min(PHRASES.length - 1, Math.floor((progress / 100) * PHRASES.length));
+    const idx = Math.min(
+      PHRASES.length - 1,
+      Math.floor((progress / 100) * PHRASES.length),
+    );
     setPhraseIdx(idx);
   }, [progress]);
 
@@ -57,11 +60,16 @@ export function Loader({ onStart }: { onStart: () => void }) {
             loading="eager"
           />
         </div>
-        <h1 className="font-display text-3xl text-golden-coin sm:text-4xl">FACU · NIVEL 9</h1>
+        <h1 className="font-display text-3xl text-golden-coin sm:text-4xl">
+          FACU · NIVEL 9
+        </h1>
       </motion.div>
 
       <div className="w-full max-w-md">
-        <div className="voxel-card overflow-hidden p-1" style={{ background: "var(--night)" }}>
+        <div
+          className="voxel-card overflow-hidden p-1"
+          style={{ background: "var(--night)" }}
+        >
           <div className="relative h-5 w-full overflow-hidden rounded-sm bg-white/10">
             <motion.div
               className="h-full bg-gradient-to-r from-sky-blue to-golden-coin"

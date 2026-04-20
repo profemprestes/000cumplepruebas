@@ -1,13 +1,37 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Clock, Shirt, Mail, Instagram, ExternalLink } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  Clock,
+  Shirt,
+  Mail,
+  Instagram,
+  ExternalLink,
+} from "lucide-react";
 import { EVENT, RSVP_PARENTS_MSG, whatsappLink } from "@/lib/event";
 
 export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
   const rows = [
-    { icon: <Calendar className="h-5 w-5" />, label: "Fecha", value: EVENT.dateLabel },
-    { icon: <Clock className="h-5 w-5" />, label: "Horario", value: EVENT.timeLabel },
-    { icon: <MapPin className="h-5 w-5" />, label: "Lugar", value: `${EVENT.venue} — ${EVENT.address}` },
-    { icon: <Shirt className="h-5 w-5" />, label: "Importante", value: EVENT.condition },
+    {
+      icon: <Calendar className="h-5 w-5" />,
+      label: "Fecha",
+      value: EVENT.dateLabel,
+    },
+    {
+      icon: <Clock className="h-5 w-5" />,
+      label: "Horario",
+      value: EVENT.timeLabel,
+    },
+    {
+      icon: <MapPin className="h-5 w-5" />,
+      label: "Lugar",
+      value: `${EVENT.venue} — ${EVENT.address}`,
+    },
+    {
+      icon: <Shirt className="h-5 w-5" />,
+      label: "Importante",
+      value: EVENT.condition,
+    },
   ];
 
   return (
@@ -19,7 +43,9 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
         <h2 className="mt-3 font-display text-3xl text-foreground sm:text-4xl">
           Cumple de {EVENT.hero}
         </h2>
-        <p className="mt-1 text-sm text-muted-foreground">Toda la info, sin vueltas.</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Toda la info, sin vueltas.
+        </p>
       </header>
 
       <motion.div
@@ -68,7 +94,9 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
         >
           <Mail className="h-5 w-5 text-sky-blue-deep" />
           <div className="min-w-0">
-            <div className="text-xs uppercase tracking-wide text-muted-foreground">Email</div>
+            <div className="text-xs uppercase tracking-wide text-muted-foreground">
+              Email
+            </div>
             <div className="truncate text-sm">{EVENT.email}</div>
           </div>
         </a>
@@ -80,7 +108,9 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
         >
           <Instagram className="h-5 w-5 text-teddy-brown-deep" />
           <div className="min-w-0">
-            <div className="text-xs uppercase tracking-wide text-muted-foreground">Instagram</div>
+            <div className="text-xs uppercase tracking-wide text-muted-foreground">
+              Instagram
+            </div>
             <div className="truncate text-sm">{EVENT.instagramHandle}</div>
           </div>
         </a>
@@ -96,7 +126,10 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
           ✅ RSVP por WhatsApp
           <ExternalLink className="h-4 w-4" />
         </a>
-        <button onClick={onContinue} className="voxel-btn voxel-btn-coin w-full sm:w-auto">
+        <button
+          onClick={onContinue}
+          className="voxel-btn voxel-btn-coin w-full sm:w-auto"
+        >
           🎁 Ver guía de regalos
         </button>
       </div>

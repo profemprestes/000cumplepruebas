@@ -15,8 +15,7 @@ export const HEROES: Hero[] = [
     image:
       "https://res.cloudinary.com/dbsm6mqcg/image/upload/q_auto/f_auto/v1776643490/Baaren.render_yrbejm.webp",
     color: "bg-teddy-brown",
-    quote:
-      "¡Prepárense para el impacto! O al menos para un abrazo muy peludo.",
+    quote: "¡Prepárense para el impacto! O al menos para un abrazo muy peludo.",
   },
   {
     id: "shicka",

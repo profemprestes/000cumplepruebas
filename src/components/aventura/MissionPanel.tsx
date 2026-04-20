@@ -12,10 +12,26 @@ export function MissionPanel({
   onContinue: () => void;
 }) {
   const objectives = [
-    { icon: <MapPin className="h-5 w-5" />, label: "Ubicación", value: `${EVENT.venue} — ${EVENT.address}` },
-    { icon: <Calendar className="h-5 w-5" />, label: "Fecha", value: EVENT.dateLabel },
-    { icon: <Clock className="h-5 w-5" />, label: "Horario", value: EVENT.timeLabel },
-    { icon: <Shirt className="h-5 w-5" />, label: "Ítem obligatorio", value: EVENT.condition },
+    {
+      icon: <MapPin className="h-5 w-5" />,
+      label: "Ubicación",
+      value: `${EVENT.venue} — ${EVENT.address}`,
+    },
+    {
+      icon: <Calendar className="h-5 w-5" />,
+      label: "Fecha",
+      value: EVENT.dateLabel,
+    },
+    {
+      icon: <Clock className="h-5 w-5" />,
+      label: "Horario",
+      value: EVENT.timeLabel,
+    },
+    {
+      icon: <Shirt className="h-5 w-5" />,
+      label: "Ítem obligatorio",
+      value: EVENT.condition,
+    },
   ];
 
   return (
@@ -29,7 +45,11 @@ export function MissionPanel({
         </h2>
         {hero && (
           <div className="mt-3 flex items-center justify-center gap-2">
-            <img src={hero.image} alt={hero.name} className="h-10 w-10 object-contain" />
+            <img
+              src={hero.image}
+              alt={hero.name}
+              className="h-10 w-10 object-contain"
+            />
             <p className="text-sm text-white/80">
               Héroe equipado:{" "}
               <span className="font-display text-golden-coin">{hero.name}</span>
@@ -53,7 +73,10 @@ export function MissionPanel({
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: i * 0.08 }}
             className="voxel-card flex items-center gap-3 p-4"
-            style={{ background: "oklch(0.24 0.05 260)", color: "oklch(0.99 0 0)" }}
+            style={{
+              background: "oklch(0.24 0.05 260)",
+              color: "oklch(0.99 0 0)",
+            }}
           >
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-sky-blue text-night">
               {o.icon}
@@ -78,7 +101,10 @@ export function MissionPanel({
           ✅ CONFIRMAR MISIÓN
           <ExternalLink className="h-4 w-4" />
         </a>
-        <button onClick={onContinue} className="voxel-btn voxel-btn-coin w-full sm:w-auto">
+        <button
+          onClick={onContinue}
+          className="voxel-btn voxel-btn-coin w-full sm:w-auto"
+        >
           🎁 Ver inventario
         </button>
       </div>

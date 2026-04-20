@@ -20,7 +20,9 @@ export function HeroSelector({
         <div className="pixel-text mx-auto inline-block rounded-md bg-night px-3 py-1 text-[10px] uppercase tracking-widest text-golden-coin">
           Selecciona tu héroe
         </div>
-        <h2 className="mt-3 font-display text-3xl text-night sm:text-4xl">Equipá tu personaje</h2>
+        <h2 className="mt-3 font-display text-3xl text-night sm:text-4xl">
+          Equipá tu personaje
+        </h2>
       </header>
 
       <div className="relative mt-6 flex flex-1 items-center justify-center">
@@ -64,13 +66,20 @@ export function HeroSelector({
           </AnimatePresence>
         </div>
 
-        <button onClick={next} aria-label="Siguiente" className="voxel-btn voxel-btn-teddy !p-3">
+        <button
+          onClick={next}
+          aria-label="Siguiente"
+          className="voxel-btn voxel-btn-teddy !p-3"
+        >
           <ChevronRight className="h-6 w-6" />
         </button>
       </div>
 
       <div className="mt-6 flex justify-center">
-        <button onClick={() => onConfirm(hero)} className="voxel-btn voxel-btn-coin">
+        <button
+          onClick={() => onConfirm(hero)}
+          className="voxel-btn voxel-btn-coin"
+        >
           ⚔ Equipar a {hero.name}
         </button>
       </div>

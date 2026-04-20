@@ -59,9 +59,7 @@ function ModeCard({
   delay: number;
 }) {
   const bg =
-    color === "sky"
-      ? "bg-sky-blue text-night"
-      : "bg-teddy-brown text-white";
+    color === "sky" ? "bg-sky-blue text-night" : "bg-teddy-brown text-white";
   return (
     <motion.button
       initial={{ y: 30, opacity: 0 }}
@@ -77,7 +75,9 @@ function ModeCard({
         <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-white/25 backdrop-blur-sm">
           {icon}
         </div>
-        <h2 className="font-display text-2xl uppercase tracking-wide sm:text-3xl">{title}</h2>
+        <h2 className="font-display text-2xl uppercase tracking-wide sm:text-3xl">
+          {title}
+        </h2>
         <p className="text-sm opacity-90 sm:text-base">{subtitle}</p>
         <div className="pixel-text mt-2 text-[10px] uppercase tracking-widest opacity-80">
           ▶ Entrar

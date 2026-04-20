@@ -14,7 +14,8 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
           GUÍA DE REGALOS
         </h2>
         <p className="mt-2 text-sm text-white/80">
-          Ítems sugeridos para sumar XP a Facu. Lo importante es venir y disfrutar 💛
+          Ítems sugeridos para sumar XP a Facu. Lo importante es venir y
+          disfrutar 💛
         </p>
       </header>
 
@@ -28,11 +29,18 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.06 }}
               className={`voxel-card flex flex-col items-center gap-2 p-4 ring-4 ring-inset ${r.ring}`}
-              style={{ background: "oklch(0.24 0.05 260)", color: "oklch(0.99 0 0)" }}
+              style={{
+                background: "oklch(0.24 0.05 260)",
+                color: "oklch(0.99 0 0)",
+              }}
             >
               <div className="text-5xl">{g.icon}</div>
-              <div className="font-display text-base leading-tight">{g.name}</div>
-              <div className={`pixel-text text-[10px] uppercase tracking-widest ${r.text}`}>
+              <div className="font-display text-base leading-tight">
+                {g.name}
+              </div>
+              <div
+                className={`pixel-text text-[10px] uppercase tracking-widest ${r.text}`}
+              >
                 {r.label}
               </div>
               <p className="text-center text-xs opacity-85">{g.description}</p>

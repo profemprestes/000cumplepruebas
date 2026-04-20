@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { Loader } from "@/components/aventura/Loader";
@@ -58,7 +58,9 @@ export default function Index() {
           />
         )}
 
-        {scene === "kid-intro" && <SceneShichaIntro onContinue={() => goto("kid-hero")} />}
+        {scene === "kid-intro" && (
+          <SceneShichaIntro onContinue={() => goto("kid-hero")} />
+        )}
 
         {scene === "kid-hero" && (
           <HeroSelector
@@ -76,7 +78,10 @@ export default function Index() {
               if (score >= 3) {
                 unlock("Trivia Master", `Conocés a Facu (${score}/4)`);
               } else {
-                unlock("Trivia completada", `Score ${score}/4 — ¡buen intento!`);
+                unlock(
+                  "Trivia completada",
+                  `Score ${score}/4 — ¡buen intento!`,
+                );
               }
               goto("kid-mission");
             }}

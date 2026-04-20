@@ -8,11 +8,30 @@ export type GiftItem = {
   description: string;
 };
 
-export const RARITY_STYLES: Record<Rarity, { label: string; ring: string; text: string }> = {
-  comun: { label: "Común", ring: "ring-muted-foreground/40", text: "text-muted-foreground" },
-  raro: { label: "Raro", ring: "ring-sky-blue-deep", text: "text-sky-blue-deep" },
-  epico: { label: "Épico", ring: "ring-teddy-brown", text: "text-teddy-brown-deep" },
-  legendario: { label: "Legendario", ring: "ring-golden-coin-deep", text: "text-golden-coin-deep" },
+export const RARITY_STYLES: Record<
+  Rarity,
+  { label: string; ring: string; text: string }
+> = {
+  comun: {
+    label: "Común",
+    ring: "ring-muted-foreground/40",
+    text: "text-muted-foreground",
+  },
+  raro: {
+    label: "Raro",
+    ring: "ring-sky-blue-deep",
+    text: "text-sky-blue-deep",
+  },
+  epico: {
+    label: "Épico",
+    ring: "ring-teddy-brown",
+    text: "text-teddy-brown-deep",
+  },
+  legendario: {
+    label: "Legendario",
+    ring: "ring-golden-coin-deep",
+    text: "text-golden-coin-deep",
+  },
 };
 
 export const GIFTS: GiftItem[] = [

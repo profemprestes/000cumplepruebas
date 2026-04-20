@@ -7,7 +7,11 @@ export type Achievement = {
   description?: string;
 };
 
-export function AchievementToast({ achievement }: { achievement: Achievement | null }) {
+export function AchievementToast({
+  achievement,
+}: {
+  achievement: Achievement | null;
+}) {
   return (
     <div className="pointer-events-none fixed right-4 top-4 z-[100] flex w-[min(92vw,360px)] flex-col gap-2">
       <AnimatePresence>
@@ -28,9 +32,13 @@ export function AchievementToast({ achievement }: { achievement: Achievement | n
               <div className="pixel-text text-[10px] uppercase tracking-widest text-golden-coin">
                 Achievement Unlocked
               </div>
-              <div className="font-display text-base leading-tight">{achievement.title}</div>
+              <div className="font-display text-base leading-tight">
+                {achievement.title}
+              </div>
               {achievement.description && (
-                <div className="text-xs opacity-80">{achievement.description}</div>
+                <div className="text-xs opacity-80">
+                  {achievement.description}
+                </div>
               )}
             </div>
           </motion.div>

@@ -26,7 +26,12 @@ const QUESTIONS: Question[] = [
   },
   {
     q: "¿Qué hay que llevar SÍ o SÍ a la misión?",
-    options: ["Patines", "Medias y ropa cómoda", "Capa de superhéroe", "Linterna"],
+    options: [
+      "Patines",
+      "Medias y ropa cómoda",
+      "Capa de superhéroe",
+      "Linterna",
+    ],
     correctIdx: 1,
     hint: "Pista: KBOOM tiene piso especial.",
   },
@@ -38,7 +43,11 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-export function MiniGames({ onContinue }: { onContinue: (score: number) => void }) {
+export function MiniGames({
+  onContinue,
+}: {
+  onContinue: (score: number) => void;
+}) {
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [score, setScore] = useState(0);
@@ -136,9 +145,14 @@ export function MiniGames({ onContinue }: { onContinue: (score: number) => void 
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.25 }}
             className="voxel-card p-5"
-            style={{ background: "oklch(0.24 0.05 260)", color: "oklch(0.99 0 0)" }}
+            style={{
+              background: "oklch(0.24 0.05 260)",
+              color: "oklch(0.99 0 0)",
+            }}
           >
-            <p className="font-display text-lg leading-snug sm:text-xl">{q.q}</p>
+            <p className="font-display text-lg leading-snug sm:text-xl">
+              {q.q}
+            </p>
             <div className="mt-4 grid gap-2">
               {q.options.map((opt, i) => {
                 const isPicked = picked === i;
@@ -160,7 +174,9 @@ export function MiniGames({ onContinue }: { onContinue: (score: number) => void 
                   >
                     <span>{opt}</span>
                     {reveal && isRight && <Check className="h-5 w-5" />}
-                    {reveal && isPicked && !isRight && <X className="h-5 w-5" />}
+                    {reveal && isPicked && !isRight && (
+                      <X className="h-5 w-5" />
+                    )}
                   </button>
                 );
               })}

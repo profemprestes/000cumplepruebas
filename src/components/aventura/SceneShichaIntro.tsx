@@ -52,11 +52,13 @@ export function SceneShichaIntro({ onContinue }: { onContinue: () => void }) {
 
         <DialogBox speaker="Shicka" emoji="🦊">
           <p>
-            ¡Hola, héroe! Soy <b>Shicka</b>, tu guía. Te traigo una misión muy especial:
+            ¡Hola, héroe! Soy <b>Shicka</b>, tu guía. Te traigo una misión muy
+            especial:
           </p>
           <p className="mt-2">
-            <b>{EVENT.hero}</b> está por desbloquear el <b>Nivel {EVENT.level}</b> y necesita
-            a los mejores aventureros del reino. ¿Aceptás la misión?
+            <b>{EVENT.hero}</b> está por desbloquear el{" "}
+            <b>Nivel {EVENT.level}</b> y necesita a los mejores aventureros del
+            reino. ¿Aceptás la misión?
           </p>
         </DialogBox>
 

@@ -212,9 +212,22 @@
 /* Backgrounds & FX */
 .bg-sky-world {
   background:
-    radial-gradient(circle at 20% 20%, oklch(0.93 0.06 230) 0%, transparent 55%),
-    radial-gradient(circle at 80% 30%, oklch(0.95 0.1 90 / 70%) 0%, transparent 50%),
-    linear-gradient(180deg, var(--sky-blue) 0%, oklch(0.92 0.07 220) 60%, var(--grass-green) 100%);
+    radial-gradient(
+      circle at 20% 20%,
+      oklch(0.93 0.06 230) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      oklch(0.95 0.1 90 / 70%) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      var(--sky-blue) 0%,
+      oklch(0.92 0.07 220) 60%,
+      var(--grass-green) 100%
+    );
 }
 
 .bg-night-grid {
@@ -250,14 +263,13 @@
 
 /* Pixel ground "blocks" line (bottom strip) */
 .bg-pixel-ground {
-  background-image:
-    linear-gradient(
-      to right,
-      var(--grass-green-deep) 0 25%,
-      var(--grass-green) 25% 50%,
-      var(--grass-green-deep) 50% 75%,
-      var(--grass-green) 75% 100%
-    );
+  background-image: linear-gradient(
+    to right,
+    var(--grass-green-deep) 0 25%,
+    var(--grass-green) 25% 50%,
+    var(--grass-green-deep) 50% 75%,
+    var(--grass-green) 75% 100%
+  );
   background-size: 32px 16px;
   background-repeat: repeat-x;
   background-position: bottom;
