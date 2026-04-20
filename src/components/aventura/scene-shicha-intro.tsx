@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { DialogBox } from './DialogBox'
+import { DialogBox } from './dialog-box'
 import { EVENT } from '@/lib/event'
 import { HEROES, FACU_HERO_IMAGE } from '@/lib/heroes'
 
@@ -25,7 +25,7 @@ export function SceneShichaIntro({ onContinue }: { onContinue: () => void }) {
       </motion.div>
 
       <header className="relative z-10 text-center mt-4">
-        <div className="pixel-text bg-night text-golden-coin mx-auto inline-block rounded-md px-4 py-2 text-[10px] tracking-widest uppercase border-2 border-night shadow-[3px_3px_0_#000]">
+        <div className="pixel-text bg-night text-golden-coin mx-auto inline-block rounded-md px-4 py-2 text-[10px] tracking-widest uppercase border-2 border-night shadow-[3px_3px_0_var(--color-night)]">
           Nivel 9 · Misión Principal
         </div>
       </header>
@@ -39,7 +39,7 @@ export function SceneShichaIntro({ onContinue }: { onContinue: () => void }) {
             initial={{ x: -150, opacity: 0, rotate: -10 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 100, damping: 15, delay: 0.2 }}
-            className="animate-float h-44 w-44 object-contain drop-shadow-[6px_6px_0_rgba(0,0,0,0.3)] sm:h-56 sm:w-56"
+            className="animate-float h-44 w-44 object-contain drop-shadow-[6px_6px_0_var(--color-night)] sm:h-56 sm:w-56"
           />
           <motion.img
             src={SHICKA_IMG}
@@ -47,8 +47,7 @@ export function SceneShichaIntro({ onContinue }: { onContinue: () => void }) {
             initial={{ x: 200, opacity: 0, rotate: 10 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 100, damping: 15 }}
-            className="animate-float h-48 w-48 object-contain drop-shadow-[6px_6px_0_rgba(0,0,0,0.3)] sm:h-64 sm:w-64"
-            style={{ animationDelay: '0.5s' }}
+            className="animate-float h-48 w-48 object-contain drop-shadow-[6px_6px_0_var(--color-night)] sm:h-64 sm:w-64 [animation-delay:0.5s]"
           />
         </div>
 
@@ -71,7 +70,7 @@ export function SceneShichaIntro({ onContinue }: { onContinue: () => void }) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1 }}
           onClick={onContinue}
-          className="bg-golden-coin text-night border-4 border-night rounded-xl px-8 py-4 font-display uppercase tracking-widest text-lg shadow-[4px_6px_0_#000] hover:translate-y-1 hover:shadow-[4px_2px_0_#000] active:translate-y-2 active:shadow-none transition-all z-30"
+          className="bg-golden-coin text-night border-4 border-night rounded-xl px-8 py-4 font-display uppercase tracking-widest text-lg shadow-[4px_6px_0_var(--color-night)] hover:translate-y-1 hover:shadow-[4px_2px_0_var(--color-night)] active:translate-y-2 active:shadow-none transition-all z-30"
         >
           ▶ ¡VAMOS ARRIBA!
         </motion.button>

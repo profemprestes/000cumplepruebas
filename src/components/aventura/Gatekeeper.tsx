@@ -16,7 +16,7 @@ export function Gatekeeper({
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="font-display text-white text-4xl drop-shadow-[4px_4px_0_#4E342E] sm:text-6xl uppercase tracking-wider"
+          className="font-display text-white text-4xl drop-shadow-[4px_4px_0_var(--color-teddy-brown)] sm:text-6xl uppercase tracking-wider"
         >
           ¡Alto Ahí! 🛑
         </motion.h1>
@@ -26,7 +26,7 @@ export function Gatekeeper({
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-white/95 backdrop-blur-sm border-4 border-teddy-brown rounded-xl p-4 sm:p-6 mt-6 mx-auto shadow-[6px_6px_0_#4E342E]"
+          className="bg-white/95 backdrop-blur-sm border-4 border-teddy-brown rounded-xl p-4 sm:p-6 mt-6 mx-auto shadow-[6px_6px_0_var(--color-teddy-brown)]"
         >
           <p className="text-teddy-brown font-amble text-base sm:text-lg font-bold leading-relaxed">
             "¡Che, despertate! Facu acaba de desbloquear el Nivel 9 en KBOOM. ¿Quién solicita acceso al servidor?"
@@ -76,7 +76,7 @@ function ModeCard({
     ? 'bg-grass-green text-white border-night'
     : 'bg-golden-coin text-teddy-brown border-teddy-brown'
 
-  const shadowColor = color === 'sky' ? '#2E7D32' : '#8D6E63'
+  const shadowClass = color === 'sky' ? 'shadow-[6px_8px_0_var(--color-grass-green)]' : 'shadow-[6px_8px_0_var(--color-teddy-brown)]'
 
   return (
     <motion.button
@@ -86,8 +86,7 @@ function ModeCard({
       whileHover={{ scale: 1.03, y: -4 }}
       whileTap={{ scale: 0.97, y: 2 }}
       onClick={onClick}
-      style={{ boxShadow: `6px 8px 0 ${shadowColor}` }}
-      className={`voxel-card relative w-full max-w-md overflow-hidden p-6 text-left border-4 rounded-2xl ${bg}`}
+      className={`voxel-card relative w-full max-w-md overflow-hidden p-6 text-left border-4 rounded-2xl ${bg} ${shadowClass}`}
     >
       <div className="absolute inset-0 opacity-0 transition-opacity duration-300 hover:opacity-100 pointer-events-none">
         <div className="animate-shine absolute inset-0 bg-white/20" />

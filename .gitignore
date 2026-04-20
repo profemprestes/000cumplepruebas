@@ -1,6 +1,10 @@
 ```gitignore
 # Dependencies
 node_modules/
+pnpm-lock.yaml
+
+# Next.js Types
+next-env.d.ts
 
 # Build outputs
 .next/

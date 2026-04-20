@@ -22,10 +22,9 @@ export function AchievementToast({
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 420, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-            className="voxel-card flex items-start gap-3 overflow-hidden p-3"
+            className="voxel-card pointer-events-auto flex items-center gap-3 bg-night text-white p-3 shadow-[4px_4px_0_0_var(--color-golden-coin)] border-golden-coin"
             role="status"
             aria-live="polite"
-            style={{ background: 'var(--night)', color: 'oklch(0.99 0 0)' }}
           >
             <div className="bg-golden-coin animate-pulse-glow relative flex h-12 w-12 shrink-0 items-center justify-center rounded-md">
               <Trophy className="text-night h-6 w-6" />

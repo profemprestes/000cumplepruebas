@@ -13,13 +13,16 @@ When using `list_files`, `grep`, or scanning the directory structure, the follow
 - `public/**/*.png`, `public/**/*.jpg`, `public/**/*.jpeg`, `public/**/*.gif`, `public/**/*.ico`, `public/**/*.webp`, `public/**/*.mp4`, `public/**/*.mp3`, `public/**/*.wav` (Heavy media files)
 - `*.log` (Log files)
 - `.git/` (Git metadata)
+- `.env*` (Environment variables)
+- `next-env.d.ts` (Auto-generated TypeScript config)
 
 ## 🛠️ Code Conventions & Instructions
 
 When working on this repository, please adhere to the following guidelines:
 
 1. **Framework & Architecture**:
-   - This is a **Next.js** project using the **App Router** (`src/app/`). All new pages and layouts should follow the App Router conventions.
+   - This is a **Next.js** project using the **App Router** (`src/app/`). All new pages and layouts should follow the App Router conventions. All application code must strictly reside under the `/src` directory.
+   - Components must be placed in `/src/components` and use **`kebab-case`** for file names (e.g., `my-component.tsx`).
    - Use **React Server Components** by default, and only add `'use client'` directive at the top of the file when client-side interactivity (hooks, state, event listeners) is strictly necessary.
 
 2. **Styling & UI**:
@@ -27,7 +30,8 @@ When working on this repository, please adhere to the following guidelines:
    - The project uses a set of pre-built UI components based on **Radix UI** located in `src/components/ui/`. Reuse these components (e.g., `Button`, `Dialog`, `Card`) before creating new fundamental UI elements.
 
 3. **Language & Typings**:
-   - Write all code in **TypeScript** (`.ts`, `.tsx`).
+   - Write all code in **TypeScript** (`.ts`, `.tsx`). Define components as pure functions using the `function` keyword (`export function MyComponent() { ... }`).
+   - Prefer **`interface`** over `type` for object shapes. **NEVER use `enum`** (use `const` objects with `as const` or `Map` instead).
    - Provide proper type definitions and interfaces for components and API responses. Avoid using `any`.
 
 4. **Package Manager**:
@@ -43,6 +47,12 @@ When working on this repository, please adhere to the following guidelines:
 
 7. **Theme & Assets**:
    - Theme colors and custom fonts (Luckiest Guy, Fredoka, Press Start 2P) are configured in `src/app/layout.tsx`. Keep the styling consistent with this "Nivel 9" interactive mission/adventure theme.
+
+8. **Performance & Interactive UI (Mobile-First)**:
+   - Always prioritize Mobile-First responsive design via Tailwind.
+   - For state synchronized with the URL, strictly use the **`nuqs`** library.
+   - All images must be in **WebP** format and include lazy loading. For missing test/placeholder images, use `placekitten.com`.
+   - Complex interactive animations should exclusively use **`framer-motion`**.
 
 ## ✅ Pre-commit / Verification steps
 

@@ -66,13 +66,10 @@ export function Loader({ onStart }: { onStart: () => void }) {
       </motion.div>
 
       <div className="w-full max-w-md">
-        <div
-          className="voxel-card overflow-hidden p-1"
-          style={{ background: 'var(--night)' }}
-        >
+        <div className="voxel-card overflow-hidden p-1 bg-night">
           <div className="relative h-5 w-full overflow-hidden rounded-sm bg-white/10">
             <motion.div
-              className="from-sky-blue to-golden-coin h-full bg-gradient-to-r"
+              className="from-sky-blue to-golden-coin h-full bg-linear-to-r"
               animate={{ width: `${progress}%` }}
               transition={{ ease: 'linear', duration: 0.1 }}
             />

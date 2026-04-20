@@ -81,7 +81,7 @@ export function MiniGames({
           initial={{ scale: 0.6, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           transition={{ type: 'spring', duration: 0.7 }}
-          className="h-44 w-44 object-contain drop-shadow-[4px_4px_0_oklch(0.85_0.16_90/0.5)] sm:h-56 sm:w-56"
+          className="h-44 w-44 object-contain drop-shadow-[4px_4px_0_var(--color-golden-coin)] sm:h-56 sm:w-56"
         />
         <div className="pixel-text bg-golden-coin text-night mt-4 inline-block rounded-md px-3 py-1 text-[10px] tracking-widest uppercase">
           Trivia completada
@@ -144,11 +144,7 @@ export function MiniGames({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.25 }}
-            className="voxel-card p-5"
-            style={{
-              background: 'oklch(0.24 0.05 260)',
-              color: 'oklch(0.99 0 0)',
-            }}
+            className="voxel-card p-5 bg-card text-card-foreground"
           >
             <p className="font-display text-lg leading-snug sm:text-xl">
               {q.q}

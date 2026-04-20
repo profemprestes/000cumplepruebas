@@ -40,8 +40,7 @@ export function Countdown({ targetISO }: { targetISO: string }) {
       {cells.map((c) => (
         <div key={c.label} className="flex flex-col items-center">
           <div
-            className="voxel-card bg-night text-golden-coin flex h-16 w-16 items-center justify-center overflow-hidden sm:h-20 sm:w-20"
-            style={{ borderColor: 'oklch(0.85 0.16 90)' }}
+            className="voxel-card flex h-14 w-14 flex-col items-center justify-center border-golden-coin shadow-[3px_3px_0_0_var(--color-night)]"
           >
             <AnimatePresence mode="popLayout">
               <motion.span
