@@ -70,7 +70,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Be+Vietnam+Pro:wght@400;600&family=Press+Start+2P&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600;700&family=Press+Start+2P&display=swap"
           rel="stylesheet"
         />
       </head>
