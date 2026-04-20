@@ -17,7 +17,7 @@ export const EVENT = {
   instagramHandle: "@kboom.uy",
   condition: "Llevar medias y ropa cómoda",
   // TODO: reemplazar por el número real (formato internacional sin + ni espacios)
-  whatsapp: "5490000000000",
+  whatsapp: "+59898039248",
 } as const;
 
 export function whatsappLink(message: string) {

@@ -11,15 +11,16 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
           Inventario del Héroe
         </div>
         <h2 className="mt-3 font-display text-3xl text-golden-coin sm:text-4xl">
-          GUÍA DE REGALOS
+          EL INVENTARIO DE FACU 🎒
         </h2>
-        <p className="mt-2 text-sm text-white/80">
-          Ítems sugeridos para sumar XP a Facu. Lo importante es venir y
-          disfrutar 💛
+        <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-white/80">
+          El mejor loot (recompensa) de esta misión es que vengas a festejar.
+          ¡Tu presencia ya es un nivel superado! Pero si querés caer con un
+          'power-up' sorpresa, los hackers de la base nos filtraron sus gustos:
         </p>
       </header>
 
-      <div className="mx-auto mt-6 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-3">
+      <div className="mx-auto mt-6 grid max-w-2xl grid-cols-2 gap-3">
         {GIFTS.map((g, i) => {
           const r = RARITY_STYLES[g.rarity];
           return (
@@ -70,8 +71,9 @@ export function GiftInventory({ onRestart }: { onRestart: () => void }) {
         <h3 className="font-display text-2xl text-golden-coin sm:text-3xl">
           MISIÓN COMPLETADA
         </h3>
-        <p className="max-w-md text-sm text-white/85">
-          Gracias por sumarte a la aventura. Nos vemos en el Nivel 9 de Facu 🎉
+        <p className="max-w-md text-sm italic text-white/85">
+          💛 ¡Ojo, bo! Las ganas de saltar valen mucho más que cualquier ítem
+          legendario.
         </p>
         <button onClick={onRestart} className="voxel-btn voxel-btn-coin">
           <RotateCcw className="h-4 w-4" />
