@@ -159,18 +159,18 @@ export function MiniGames({
                 const reveal = picked !== null;
                 const isRight = i === q.correctIdx;
                 const tone = !reveal
-                  ? "bg-white/5 hover:bg-sky-blue/30"
+                  ? "bg-white/5 hover:bg-sky-blue/30 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_var(--night)] active:translate-y-0.5 active:shadow-none transition-all duration-200"
                   : isRight
-                    ? "bg-grass-green text-night"
+                    ? "bg-grass-green text-night shadow-[2px_2px_0_0_var(--night)] -translate-y-0.5"
                     : isPicked
-                      ? "bg-destructive text-white"
-                      : "bg-white/5 opacity-60";
+                      ? "bg-destructive text-white translate-y-0.5"
+                      : "bg-white/5 opacity-40";
                 return (
                   <button
                     key={i}
                     onClick={() => onPick(i)}
                     disabled={picked !== null}
-                    className={`flex items-center justify-between rounded-md border-4 border-night px-3 py-2 text-left text-sm transition-colors sm:text-base ${tone}`}
+                    className={`flex items-center justify-between rounded-md border-4 border-night px-3 py-2 text-left text-sm transition-all sm:text-base ${tone}`}
                   >
                     <span>{opt}</span>
                     {reveal && isRight && <Check className="h-5 w-5" />}
