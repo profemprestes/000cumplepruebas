@@ -187,6 +187,8 @@ export function MiniGames({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-4 rounded-md border-2 border-night/50 bg-white/5 p-3 text-xs sm:text-sm"
+                role="status"
+                aria-live="polite"
               >
                 <span className="pixel-text mr-2 text-golden-coin">
                   {isCorrect ? "✓ CORRECTO" : "✗ CASI"}
@@ -202,6 +204,12 @@ export function MiniGames({
             onClick={next}
             disabled={picked === null}
             className="voxel-btn voxel-btn-coin disabled:cursor-not-allowed disabled:opacity-50"
+            aria-disabled={picked === null}
+            title={
+              picked === null
+                ? "Seleccioná una respuesta para continuar"
+                : "Siguiente"
+            }
           >
             {idx + 1 >= QUESTIONS.length ? "▶ Ver resultado" : "▶ Siguiente"}
           </button>

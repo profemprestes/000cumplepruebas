@@ -91,6 +91,7 @@ export function Loader({ onStart }: { onStart: () => void }) {
           animate={{ opacity: 1, y: 0 }}
           onClick={onStart}
           className="pixel-text mt-12 text-base text-golden-coin animate-blink sm:text-xl"
+          aria-label="Empezar aventura"
         >
           ▶ PRESS START
         </motion.button>

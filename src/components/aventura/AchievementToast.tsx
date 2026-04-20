@@ -23,6 +23,8 @@ export function AchievementToast({
             exit={{ x: 420, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 22 }}
             className="voxel-card flex items-start gap-3 overflow-hidden p-3"
+            role="status"
+            aria-live="polite"
             style={{ background: "var(--night)", color: "oklch(0.99 0 0)" }}
           >
             <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-golden-coin animate-pulse-glow">
