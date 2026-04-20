@@ -38,7 +38,7 @@ export default function Index() {
         {scene === "loader" && (
           <Loader
             onStart={() => {
-              unlock("Sistema iniciado", "Bienvenido al Reino Voxel");
+              unlock("Sistema iniciado", "Bienvenido a la Gran Facu Aventura");
               goto("gatekeeper");
             }}
           />
