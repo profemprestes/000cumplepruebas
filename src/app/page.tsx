@@ -32,7 +32,7 @@ export default function Index() {
   const goto = (s: Scene) => setScene(s);
 
   return (
-    <main className="min-h-screen w-full">
+    <main className="bg-tactile-adventure min-h-screen w-full">
       <AchievementToast achievement={current} />
       <SceneTransition sceneKey={scene}>
         {scene === "loader" && (
