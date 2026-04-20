@@ -51,3 +51,10 @@ Before finalizing any plan and submitting, verify that:
 - You have compiled the code or run a build check if possible.
 - Linting (`pnpm lint`) passes.
 - No type errors exist.
+
+## 🎨 Visual Identity
+
+- Use Tailwind classes and predefined variables from `src/styles.css` instead of hardcoded arbitrary hex values, `oklch`, or `rgba` variables (e.g., `bg-night`, `text-golden-coin`, `border-night`, etc.).
+- Avoid using `style={{ ... }}` inline properties. Rely on Tailwind classes (`bg-card`, `text-card-foreground`, etc.).
+- Enforce the use of standard UI design concepts by using the `voxel-card` and `voxel-btn` classes, along with proper modifier classes (like `voxel-btn-coin` or `voxel-btn-teddy`).
+- Standard shadows should be defined with CSS variables mapped to standard classes (e.g. `shadow-[6px_6px_0_var(--color-teddy-brown)]` or `drop-shadow-[4px_4px_0_var(--color-night)]`), replacing raw values (`#000`, `rgba(0,0,0,0.3)`, etc.).

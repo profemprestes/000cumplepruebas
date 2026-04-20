@@ -10,7 +10,7 @@ export function Gatekeeper({
     <div className="bg-sky-blue relative flex min-h-screen w-full flex-col items-center justify-center p-4 overflow-hidden">
 
       {/* Fondo decorativo (opcional, simulando partículas) */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent" />
+      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white to-transparent" />
 
       <header className="relative z-10 px-6 pt-8 pb-4 text-center sm:pt-12 w-full max-w-2xl">
         <motion.h1

@@ -1,85 +1,90 @@
 import { motion } from 'framer-motion'
+import { Package } from 'lucide-react'
 import { GIFTS, RARITY_STYLES } from '@/lib/gifts'
-import { RotateCcw } from 'lucide-react'
-import { FACU_HERO_IMAGE } from '@/lib/heroes'
 
-export function GiftInventory({ onRestart }: { onRestart: () => void }) {
+export function GiftInventory({ onClose }: { onClose: () => void }) {
   return (
-    <div className="bg-night-grid min-h-screen w-full px-5 py-8 text-white">
-      <header className="mx-auto max-w-3xl text-center">
-        <div className="pixel-text bg-golden-coin text-night mx-auto inline-block rounded-md px-3 py-1 text-[10px] tracking-widest uppercase">
-          Inventario del Héroe
+    <div className="bg-night/95 min-h-screen w-full px-4 py-8 sm:px-6 flex flex-col items-center justify-center relative overflow-hidden">
+
+      {/* Fondo con leve textura/partículas */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 to-transparent opacity-50" />
+
+      <header className="relative z-10 mx-auto max-w-3xl text-center mb-8">
+        <div className="pixel-text bg-teddy-brown inline-flex items-center gap-2 rounded-md px-4 py-2 text-[10px] tracking-widest text-white uppercase border-2 border-white/20 shadow-[3px_3px_0_#000] mb-4">
+          <Package className="h-4 w-4" /> Escaneo de Stats
         </div>
-        <h2 className="font-display text-golden-coin mt-3 text-3xl sm:text-4xl">
-          EL INVENTARIO DE FACU 🎒
-        </h2>
-        <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-white/80">
-          El mejor loot (recompensa) de esta misión es que vengas a festejar.
-          ¡Tu presencia ya es un nivel superado! Pero si querés caer con un
-          'power-up' sorpresa, los hackers de la base nos filtraron sus gustos:
-        </p>
+
+        <motion.h2
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="font-display text-golden-coin mt-2 text-4xl sm:text-6xl drop-shadow-[3px_3px_0_#000] tracking-wide uppercase"
+        >
+          El Inventario de Facu 🎒
+        </motion.h2>
+
+        <motion.p
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="text-white/90 mt-4 font-bold text-sm sm:text-base max-w-xl mx-auto leading-relaxed bg-black/30 p-4 rounded-xl border border-white/10"
+        >
+          El mejor <span className="text-grass-green font-black">loot (recompensa)</span> de esta misión es que vengas a festejar. ¡Tu presencia ya es un nivel superado! Pero si querés caer con un "power-up" sorpresa, los hackers de la base nos filtraron sus gustos:
+        </motion.p>
       </header>
 
-      <div className="mx-auto mt-6 grid max-w-2xl grid-cols-2 gap-3">
-        {GIFTS.map((g, i) => {
-          const r = RARITY_STYLES[g.rarity]
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl w-full">
+        {GIFTS.map((gift, index) => {
+          const style = RARITY_STYLES[gift.rarity]
           return (
             <motion.div
-              key={g.id}
+              key={gift.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.06 }}
-              className={`voxel-card voxel-card-hover flex flex-col items-center gap-2 p-4 ring-4 ring-inset ${r.ring} transition-all duration-200`}
-              style={{
-                background: 'oklch(0.24 0.05 260)',
-                color: 'oklch(0.99 0 0)',
-              }}
+              transition={{ delay: 0.1 * index }}
+              whileHover={{ scale: 1.02 }}
+              className="voxel-card bg-sky-blue/10 border-4 border-white/20 shadow-[4px_4px_0_#000] p-4 sm:p-5 rounded-2xl flex items-start gap-4 backdrop-blur-md"
             >
-              <div className="text-5xl">{g.icon}</div>
-              <div className="font-display text-base leading-tight">
-                {g.name}
+              <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border-2 border-night shadow-[3px_3px_0_#000] bg-white text-3xl`}>
+                {gift.icon}
               </div>
-              <div
-                className={`pixel-text text-[10px] tracking-widest uppercase ${r.text}`}
-              >
-                {r.label}
+              <div className="flex-1 min-w-0">
+                <div className={`text-[10px] font-black tracking-widest uppercase mb-1 ${style.text} drop-shadow-[1px_1px_0_#000]`}>
+                  {style.label}
+                </div>
+                <h3 className="font-display text-white text-xl sm:text-2xl tracking-wide mb-1 drop-shadow-md">
+                  {gift.name}
+                </h3>
+                <p className="text-white/80 text-sm font-bold leading-tight">
+                  {gift.description}
+                </p>
               </div>
-              <p className="text-center text-xs opacity-85">{g.description}</p>
             </motion.div>
           )
         })}
       </div>
 
+      {/* Footer / Aviso amigable */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
-        className="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-4 text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+        className="relative z-10 mt-8 text-center bg-golden-coin/10 border-2 border-golden-coin border-dashed rounded-xl p-4 max-w-2xl w-full"
       >
-        <div className="relative">
-          <motion.img
-            src={FACU_HERO_IMAGE}
-            alt="Facu"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="h-40 w-40 object-contain drop-shadow-[4px_4px_0_oklch(0.85_0.16_90/0.5)] sm:h-48 sm:w-48"
-          />
-          <div className="pixel-text border-night bg-golden-coin text-night absolute -top-2 left-1/2 -translate-x-1/2 rounded-md border-2 px-2 py-1 text-[9px] tracking-widest whitespace-nowrap uppercase">
-            ¡Te esperamos!
-          </div>
-        </div>
-        <h3 className="font-display text-golden-coin text-2xl sm:text-3xl">
-          MISIÓN COMPLETADA
-        </h3>
-        <p className="max-w-md text-sm text-white/85 italic">
-          💛 ¡Ojo, bo! Las ganas de saltar valen mucho más que cualquier ítem
-          legendario.
+        <p className="font-bold text-golden-coin text-sm sm:text-base drop-shadow-md">
+          💛 ¡Ojo, bo! Las ganas de saltar y divertirse valen mucho más que cualquier ítem legendario.
         </p>
-        <button onClick={onRestart} className="voxel-btn voxel-btn-coin">
-          <RotateCcw className="h-4 w-4" />
-          Volver al inicio
-        </button>
       </motion.div>
+
+      {/* Botón de Salida */}
+      <motion.button
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        onClick={onClose}
+        className="relative z-10 mt-8 bg-rojo text-white border-4 border-night rounded-xl px-8 py-3 font-display uppercase tracking-widest text-lg shadow-[4px_6px_0_#000] hover:translate-y-1 hover:shadow-[4px_2px_0_#000] active:translate-y-2 active:shadow-none transition-all"
+      >
+        ❌ Cerrar Inventario
+      </motion.button>
     </div>
   )
 }

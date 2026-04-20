@@ -13,24 +13,24 @@ export const RARITY_STYLES: Record<
   { label: string; ring: string; text: string }
 > = {
   comun: {
-    label: 'Común',
-    ring: 'ring-muted-foreground/40',
-    text: 'text-muted-foreground',
+    label: 'Drop Común',
+    ring: 'ring-grass-green/50',
+    text: 'text-grass-green',
   },
   raro: {
-    label: 'Raro',
-    ring: 'ring-sky-blue-deep',
-    text: 'text-sky-blue-deep',
+    label: 'Ítem Raro',
+    ring: 'ring-sky-blue/80',
+    text: 'text-sky-blue',
   },
   epico: {
-    label: 'Épico',
+    label: 'Loot Épico',
     ring: 'ring-teddy-brown',
-    text: 'text-teddy-brown-deep',
+    text: 'text-teddy-brown',
   },
   legendario: {
-    label: 'Legendario',
-    ring: 'ring-golden-coin-deep',
-    text: 'text-golden-coin-deep',
+    label: 'Artefacto Legendario',
+    ring: 'ring-golden-coin',
+    text: 'text-golden-coin',
   },
 }
 
@@ -39,28 +39,28 @@ export const GIFTS: GiftItem[] = [
     id: 'deportivo',
     name: 'Modo Deportivo',
     icon: '🏀',
-    rarity: 'raro',
-    description: 'Cosas de Básquet para sumar agilidad.',
+    rarity: 'epico',
+    description: 'Todo lo que sea de Básquet le da un boost de agilidad al instante.',
   },
   {
     id: 'explorador',
     name: 'Explorador',
     icon: '🎮',
-    rarity: 'epico',
-    description: 'Juegos de aventuras y plataformas.',
+    rarity: 'legendario',
+    description: 'Juegos de plataformas, aventuras o consolas. ¡Pura XP para Facu!',
   },
   {
     id: 'crafteo',
     name: 'Crafteo',
     icon: '🎨',
-    rarity: 'legendario',
-    description: 'Arte, cosas para dibujar o inventar.',
+    rarity: 'raro',
+    description: 'Herramientas de arte, ideal para dibujar o inventar nuevas misiones.',
   },
   {
     id: 'skin',
     name: 'Skin Nivel 9',
     icon: '👕',
     rarity: 'comun',
-    description: 'Usa talle 10/12 de ropa y calza 34 de championes.',
+    description: 'Su armadura se actualizó: usa talle 10/12 de ropa y calza 34.',
   },
 ]
