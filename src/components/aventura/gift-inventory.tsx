@@ -44,7 +44,7 @@ export function GiftInventory({ onClose }: { onClose: () => void }) {
         </motion.p>
       </header>
 
-      <div className="relative z-10 grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+      <div className="relative z-10 grid w-full max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
         {GIFTS.map((gift, index) => {
           const style = RARITY_STYLES[gift.rarity]
           return (
@@ -57,7 +57,7 @@ export function GiftInventory({ onClose }: { onClose: () => void }) {
               className="voxel-card border-night bg-white flex items-start gap-4 rounded-2xl border-4 p-4 shadow-[4px_4px_0_var(--color-night)] sm:p-5"
             >
               <div
-                className={`border-night flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border-2 bg-sky-blue/20 text-3xl shadow-[3px_3px_0_#000]`}
+                className={`border-night flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-xl border-2 bg-sky-blue/20 text-3xl shadow-[3px_3px_0_#000]`}
               >
                 {gift.icon}
               </div>
