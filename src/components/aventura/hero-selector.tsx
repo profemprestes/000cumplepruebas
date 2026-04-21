@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Gamepad2 } from 'lucide-react'
 import { HEROES, type Hero } from '@/lib/heroes'
+import { World3D } from './world-3d'
 
 export function HeroSelector({
   onConfirm,
@@ -15,10 +16,12 @@ export function HeroSelector({
   const next = () => setIdx((i) => (i + 1) % HEROES.length)
 
   return (
-    <div className="bg-sky-blue relative flex min-h-screen w-full flex-col px-4 py-8 sm:px-6 overflow-hidden">
+    <div className="relative flex min-h-screen w-full flex-col px-4 py-8 sm:px-6 overflow-hidden bg-transparent">
+      {/* Mundo 3D de fondo */}
+      <World3D />
 
-      {/* Fondo de velocidad (rayas sutiles) */}
-      <div className="absolute inset-0 pointer-events-none opacity-10 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#ffffff_10px,#ffffff_20px)]" />
+      {/* Filtro tenue para que el texto siga siendo legible si el mundo es muy brillante */}
+      <div className="absolute inset-0 pointer-events-none bg-black/10 z-0" />
 
       <header className="relative z-10 text-center pt-4">
         <div className="pixel-text bg-night text-golden-coin mx-auto inline-flex items-center gap-2 rounded-md px-4 py-2 text-[10px] tracking-widest uppercase border-2 border-night shadow-[3px_3px_0_var(--color-night)]">

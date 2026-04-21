@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Loader } from '@/components/aventura/loader'
-import { Gatekeeper } from '@/components/aventura/gatekeeper'
+import { Loader } from '@/components/aventura/Loader'
+import { Gatekeeper } from '@/components/aventura/Gatekeeper'
 import { SceneShichaIntro } from '@/components/aventura/scene-shicha-intro'
 import { HeroSelector } from '@/components/aventura/hero-selector'
 import { MissionPanel } from '@/components/aventura/mission-panel'

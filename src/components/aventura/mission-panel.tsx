@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Calendar, MapPin, Clock, Shirt, ExternalLink } from 'lucide-react'
 import { EVENT, RSVP_KIDS_MSG, whatsappLink } from '@/lib/event'
 import type { Hero } from '@/lib/heroes'
-import { Countdown } from './countdown'
+import { Countdown } from './Countdown'
 
 export function MissionPanel({
   hero,
