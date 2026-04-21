@@ -1,87 +1,40 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
+import animate from 'tailwind-merge' // Para animaciones profesionales
 
-const config = {
-  darkMode: "class",
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
+export default {
+  // En v4, el 'content' se detecta automáticamente, pero lo dejamos
+  // explícito para mayor seguridad en compilaciones complejas.
+  content: ['./src/**/*.{ts,tsx,mdx}'],
+  darkMode: 'class',
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        border: "var(--border)",
-        input: "var(--input)",
-        ring: "var(--ring)",
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
+        // Colores temáticos de tu proyecto "Cumple"
+        'sky-blue': {
+          DEFAULT: 'var(--sky-blue)',
+          deep: 'var(--sky-blue-deep)',
         },
-        secondary: {
-          DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)",
+        'teddy-brown': {
+          DEFAULT: 'var(--teddy-brown)',
+          deep: 'var(--teddy-brown-deep)',
         },
-        destructive: {
-          DEFAULT: "var(--destructive)",
-          foreground: "var(--destructive-foreground)",
+        'golden-coin': {
+          DEFAULT: 'var(--golden-coin)',
+          deep: 'var(--golden-coin-deep)',
         },
-        muted: {
-          DEFAULT: "var(--muted)",
-          foreground: "var(--muted-foreground)",
+        'grass-green': {
+          DEFAULT: 'var(--grass-green)',
+          deep: 'var(--grass-green-deep)',
         },
-        accent: {
-          DEFAULT: "var(--accent)",
-          foreground: "var(--accent-foreground)",
-        },
-        popover: {
-          DEFAULT: "var(--popover)",
-          foreground: "var(--popover-foreground)",
-        },
-        card: {
-          DEFAULT: "var(--card)",
-          foreground: "var(--card-foreground)",
-        },
-        "sky-blue": {
-          DEFAULT: "var(--sky-blue)",
-          deep: "var(--sky-blue-deep)",
-        },
-        "teddy-brown": {
-          DEFAULT: "var(--teddy-brown)",
-          deep: "var(--teddy-brown-deep)",
-        },
-        "golden-coin": {
-          DEFAULT: "var(--golden-coin)",
-          deep: "var(--golden-coin-deep)",
-        },
-        "grass-green": {
-          DEFAULT: "var(--grass-green)",
-          deep: "var(--grass-green-deep)",
-        },
-        night: "var(--night)",
+        night: 'var(--night)',
       },
+      // Configuración necesaria para los modelos 3D y UI
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      fontFamily: {
-        display: "var(--font-display)",
-        body: "var(--font-body)",
-        pixel: "var(--font-pixel)",
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
-
-export default config;
+  plugins: [require('tailwindcss-animate')],
+} satisfies Config

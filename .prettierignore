@@ -1,7 +1,19 @@
-node_modules
-dist
-.output
-.vinxi
+# Carpetas de construcción
+.next/
+dist/
+out/
+build/
+
+# Dependencias
+node_modules/
 pnpm-lock.yaml
-package-lock.json
-routeTree.gen.ts
+
+# Assets 3D y multimedia (No formatear binarios)
+public/modelos/
+public/*.glb
+public/*.png
+public/*.jpg
+public/*.svg
+
+# Configuraciones de sistema
+.vercel/

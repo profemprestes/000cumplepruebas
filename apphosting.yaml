@@ -1,7 +1,12 @@
-# Settings to manage and configure a Firebase App Hosting backend.
-# https://firebase.google.com/docs/app-hosting/configure
-
+# Configuración para Firebase App Hosting
 runConfig:
-  # Increase this value if you'd like to automatically spin up
-  # more instances in response to increased traffic.
-  maxInstances: 1
+  # Evita el "cold start" manteniendo una instancia mínima si el presupuesto lo permite
+  minInstances: 0
+  maxInstances: 10
+  # Next.js 16 puede ser intensivo en memoria con modelos 3D
+  memory: 1Gi
+  cpu: 1
+
+env:
+  - name: NODE_ENV
+    value: production

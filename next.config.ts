@@ -1,36 +1,27 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Mejora el rendimiento de compilación con Turbopack
+  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
+
+  // Configuración de caché avanzada de Next.js 16
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-icons'],
+  },
 
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        port: '',
-        pathname: '/**',
-      },
+      { protocol: 'https', hostname: 'placehold.co' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      // Añadimos Supabase para tus assets dinámicos
+      { protocol: 'https', hostname: '*.supabase.co' },
     ],
   },
+
+  // Evita errores de hidratación comunes en aplicaciones 3D pesadas
+  reactStrictMode: true,
 }
 
 export default nextConfig

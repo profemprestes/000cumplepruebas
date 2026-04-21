@@ -1,14 +1,19 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "000cumplepruebas",
+  "version": "1.0.0",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lint": "eslint .",
+    "start": "next start",
+    "lint": "next lint",
     "format": "prettier --write .",
-    "start": "next start"
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf .next",
+    "prune": "pnpm store prune",
+    "nuke": "rimraf .next node_modules pnpm-lock.yaml && pnpm install"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -38,6 +43,8 @@
     "@radix-ui/react-toggle": "^1.1.10",
     "@radix-ui/react-toggle-group": "^1.1.11",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@radix-ui/react-visually-hidden": "^1.1.0",
+    "@radix-ui/react-presence": "^1.1.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.0",
     "@supabase/supabase-js": "^2.103.3",
@@ -51,7 +58,7 @@
     "framer-motion": "^12.38.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.575.0",
-    "next": "^16.2.4",
+    "next": "16.2.4",
     "postcss": "^8.5.10",
     "react": "^19.2.5",
     "react-day-picker": "^9.14.0",
@@ -75,7 +82,7 @@
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.184.0",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.2.4",
+    "eslint-config-next": "16.2.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -83,6 +90,7 @@
     "globals": "^15.15.0",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "rimraf": "^6.0.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.58.2"
   }

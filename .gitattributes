@@ -1,2 +1,21 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Manejo automático de finales de línea para archivos de texto
+* text=auto eol=lf
+
+# Marcar explícitamente archivos web y de código como texto
+*.ts text
+*.tsx text
+*.js text
+*.jsx text
+*.css text
+*.json text
+*.md text
+
+# PREVENCIÓN DE CORRUPCIÓN: Marcar modelos 3D y assets como binarios
+*.glb binary
+*.gltf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+*.ico binary
+*.webp binary

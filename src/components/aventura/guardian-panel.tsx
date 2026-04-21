@@ -83,7 +83,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
         <iframe
           title="Mapa KBOOM"
           src={EVENT.mapsEmbed}
-          className="h-56 w-full sm:h-72 grayscale-[20%] contrast-125"
+          className="h-56 w-full sm:h-72 grayscale-20 contrast-125"
           loading="lazy"
         />
         <a
