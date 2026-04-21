@@ -15,6 +15,7 @@ Expert in building 3D experiences for the web - Three.js, React Three Fiber, Spl
 You bring the third dimension to the web. You know when 3D enhances and when it's just showing off. You balance visual impact with performance. You make 3D accessible to users who've never touched a 3D app. You create moments of wonder without sacrificing usability.
 
 ## Expertise
+
 - Three.js
 - React Three Fiber
 - Spline
@@ -24,6 +25,7 @@ You bring the third dimension to the web. You know when 3D enhances and when it'
 - Model preparation
 
 ## Capabilities
+
 - Three.js implementation
 - React Three Fiber
 - WebGL optimization
@@ -36,18 +38,19 @@ You bring the third dimension to the web. You know when 3D enhances and when it'
 ## Patterns
 
 ### 3D Stack Selection
+
 Choosing the right 3D approach
 
 When to use: When starting a 3D web project
 
 #### Options Comparison
 
-| Tool | Best For | Learning Curve | Control |
-|---|---|---|---|
-| Spline | Quick prototypes, designers | Low | Medium |
-| React Three Fiber | React apps, complex scenes | Medium | High |
-| Three.js vanilla | Max control, non-React | High | Maximum |
-| Babylon.js | Games, heavy 3D | High | Maximum |
+| Tool              | Best For                    | Learning Curve | Control |
+| ----------------- | --------------------------- | -------------- | ------- |
+| Spline            | Quick prototypes, designers | Low            | Medium  |
+| React Three Fiber | React apps, complex scenes  | Medium         | High    |
+| Three.js vanilla  | Max control, non-React      | High           | Maximum |
+| Babylon.js        | Games, heavy 3D             | High           | Maximum |
 
 #### Decision Tree
 
@@ -66,24 +69,22 @@ Need max performance/control?
 #### Spline (Fastest Start)
 
 ```javascript
-import Spline from '@splinetool/react-spline';
+import Spline from '@splinetool/react-spline'
 
 export default function Scene() {
-  return (
-    <Spline scene="https://prod.spline.design/xxx/scene.splinecode" />
-  );
+  return <Spline scene="https://prod.spline.design/xxx/scene.splinecode" />
 }
 ```
 
 #### React Three Fiber
 
 ```javascript
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, useGLTF } from '@react-three/drei'
 
 function Model() {
-  const { scene } = useGLTF('/model.glb');
-  return <primitive object={scene} />;
+  const { scene } = useGLTF('/model.glb')
+  return <primitive object={scene} />
 }
 
 export default function Scene() {
@@ -93,25 +94,27 @@ export default function Scene() {
       <Model />
       <OrbitControls />
     </Canvas>
-  );
+  )
 }
 ```
 
 ### 3D Model Pipeline
+
 Getting models web-ready
 
 When to use: When preparing 3D assets
 
 #### Format Selection
 
-| Format | Use Case | Size |
-|---|---|---|
-| GLB/GLTF | Standard web 3D | Smallest |
-| FBX | From 3D software | Large |
-| OBJ | Simple meshes | Medium |
-| USDZ | Apple AR | Medium |
+| Format   | Use Case         | Size     |
+| -------- | ---------------- | -------- |
+| GLB/GLTF | Standard web 3D  | Smallest |
+| FBX      | From 3D software | Large    |
+| OBJ      | Simple meshes    | Medium   |
+| USDZ     | Apple AR         | Medium   |
 
 #### Optimization Pipeline
+
 1. Model in Blender/etc
 2. Reduce poly count (< 100K for web)
 3. Bake textures (combine materials)
@@ -134,12 +137,12 @@ gltf-transform optimize input.glb output.glb \
 #### Loading in R3F
 
 ```javascript
-import { useGLTF, useProgress, Html } from '@react-three/drei';
-import { Suspense } from 'react';
+import { useGLTF, useProgress, Html } from '@react-three/drei'
+import { Suspense } from 'react'
 
 function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(0)}%</Html>;
+  const { progress } = useProgress()
+  return <Html center>{progress.toFixed(0)}%</Html>
 }
 
 export default function Scene() {
@@ -149,11 +152,12 @@ export default function Scene() {
         <Model />
       </Suspense>
     </Canvas>
-  );
+  )
 }
 ```
 
 ### Scroll-Driven 3D
+
 3D that responds to scroll
 
 When to use: When integrating 3D with scroll
@@ -161,19 +165,19 @@ When to use: When integrating 3D with scroll
 #### R3F + Scroll Controls
 
 ```javascript
-import { ScrollControls, useScroll } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
+import { ScrollControls, useScroll } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 
 function RotatingModel() {
-  const scroll = useScroll();
-  const ref = useRef();
+  const scroll = useScroll()
+  const ref = useRef()
 
   useFrame(() => {
     // Rotate based on scroll position
-    ref.current.rotation.y = scroll.offset * Math.PI * 2;
-  });
+    ref.current.rotation.y = scroll.offset * Math.PI * 2
+  })
 
-  return <mesh ref={ref}>...</mesh>;
+  return <mesh ref={ref}>...</mesh>
 }
 
 export default function Scene() {
@@ -183,15 +187,15 @@ export default function Scene() {
         <RotatingModel />
       </ScrollControls>
     </Canvas>
-  );
+  )
 }
 ```
 
 #### GSAP + Three.js
 
 ```javascript
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 gsap.to(camera.position, {
   scrollTrigger: {
@@ -200,10 +204,11 @@ gsap.to(camera.position, {
   },
   z: 5,
   y: 2,
-});
+})
 ```
 
 #### Common Scroll Effects
+
 - Camera movement through scene
 - Model rotation on scroll
 - Reveal/hide elements
@@ -211,17 +216,18 @@ gsap.to(camera.position, {
 - Exploded view animations
 
 ### Performance Optimization
+
 Keeping 3D fast
 
 When to use: Always - 3D is expensive
 
 #### Performance Targets
 
-| Device | Target FPS | Max Triangles |
-|---|---|---|
-| Desktop | 60fps | 500K |
-| Mobile | 30-60fps | 100K |
-| Low-end | 30fps | 50K |
+| Device  | Target FPS | Max Triangles |
+| ------- | ---------- | ------------- |
+| Desktop | 60fps      | 500K          |
+| Mobile  | 30-60fps   | 100K          |
+| Low-end | 30fps      | 50K           |
 
 #### Quick Wins
 
@@ -268,26 +274,31 @@ function Scene() {
 ## Validation Checks
 
 ### No 3D Loading Indicator
+
 - **Severity**: HIGH
 - **Message**: No loading indicator for 3D content.
 - **Fix action**: Add Suspense with loading fallback or useProgress for loading UI
 
 ### No WebGL Fallback
+
 - **Severity**: MEDIUM
 - **Message**: No fallback for devices without WebGL support.
 - **Fix action**: Add WebGL detection and static image fallback
 
 ### Uncompressed 3D Models
+
 - **Severity**: MEDIUM
 - **Message**: 3D models may be unoptimized.
 - **Fix action**: Compress models with gltf-transform using Draco and texture compression
 
 ### OrbitControls Blocking Scroll
+
 - **Severity**: MEDIUM
 - **Message**: OrbitControls may be capturing scroll events.
 - **Fix action**: Add enableZoom={false} or handle scroll/touch events appropriately
 
 ### High DPR on Mobile
+
 - **Severity**: MEDIUM
 - **Message**: Canvas DPR may be too high for mobile devices.
 - **Fix action**: Limit DPR to 1 on mobile devices for better performance
@@ -295,12 +306,14 @@ function Scene() {
 ## Collaboration
 
 ### Delegation Triggers
+
 - `scroll animation|parallax|GSAP` -> scroll-experience (Scroll integration)
 - `react|next|frontend` -> frontend (React integration)
 - `performance|slow|fps` -> performance-hunter (3D performance optimization)
 - `product page|landing|marketing` -> landing-page-design (Product landing with 3D)
 
 ### Product Configurator
+
 - **Skills**: 3d-web-experience, frontend, landing-page-design
 - **Workflow**:
   1. Prepare 3D product model
@@ -311,6 +324,7 @@ function Scene() {
   6. Add fallback images
 
 ### Immersive Portfolio
+
 - **Skills**: 3d-web-experience, scroll-experience, interactive-portfolio
 - **Workflow**:
   1. Design 3D scene concept
@@ -321,9 +335,11 @@ function Scene() {
   6. Optimize performance
 
 ## Related Skills
+
 Works well with: scroll-experience, interactive-portfolio, frontend, landing-page-design
 
 ## When to Use
+
 - User mentions or implies: 3D website
 - User mentions or implies: three.js
 - User mentions or implies: WebGL
@@ -333,6 +349,7 @@ Works well with: scroll-experience, interactive-portfolio, frontend, landing-pag
 - User mentions or implies: product configurator
 
 ## Limitations
+
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

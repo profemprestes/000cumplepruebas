@@ -3,11 +3,7 @@ import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Gamepad2 } from 'lucide-react'
 import { HEROES, type Hero } from '@/lib/heroes'
 
-export function HeroSelector({
-  onConfirm,
-}: {
-  onConfirm: (hero: Hero) => void
-}) {
+export function HeroSelector({ onConfirm }: { onConfirm: (hero: Hero) => void }) {
   const [idx, setIdx] = useState(0)
   const hero = HEROES[idx]
 
@@ -15,32 +11,31 @@ export function HeroSelector({
   const next = () => setIdx((i) => (i + 1) % HEROES.length)
 
   return (
-    <div className="bg-sky-blue relative flex min-h-screen w-full flex-col px-4 py-8 sm:px-6 overflow-hidden">
-
+    <div className="bg-sky-blue relative flex min-h-screen w-full flex-col overflow-hidden px-4 py-8 sm:px-6">
       {/* Fondo de velocidad (rayas sutiles) */}
-      <div className="absolute inset-0 pointer-events-none opacity-10 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#ffffff_10px,#ffffff_20px)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#ffffff_10px,#ffffff_20px)] opacity-10" />
 
-      <header className="relative z-10 text-center pt-4">
-        <div className="pixel-text bg-night text-golden-coin mx-auto inline-flex items-center gap-2 rounded-md px-4 py-2 text-[10px] tracking-widest uppercase border-2 border-night shadow-[3px_3px_0_var(--color-night)]">
+      <header className="relative z-10 pt-4 text-center">
+        <div className="pixel-text bg-night text-golden-coin border-night mx-auto inline-flex items-center gap-2 rounded-md border-2 px-4 py-2 text-[10px] tracking-widest uppercase shadow-[3px_3px_0_var(--color-night)]">
           <Gamepad2 className="h-4 w-4" /> Selección de Skin
         </div>
-        <h2 className="font-display text-white mt-4 text-4xl sm:text-5xl drop-shadow-[4px_4px_0_var(--color-teddy-brown)] uppercase tracking-wide">
+        <h2 className="font-display mt-4 text-4xl tracking-wide text-white uppercase drop-shadow-[4px_4px_0_var(--color-teddy-brown)] sm:text-5xl">
           Elegí a tu héroe
         </h2>
       </header>
 
-      <div className="relative z-10 mt-6 flex flex-1 items-center justify-center max-w-4xl mx-auto w-full">
+      <div className="relative z-10 mx-auto mt-6 flex w-full max-w-4xl flex-1 items-center justify-center">
         {/* Botón Anterior */}
         <button
           onClick={prev}
           aria-label="Anterior"
-          className="bg-white text-night border-4 border-night rounded-xl p-3 sm:p-4 shadow-[4px_4px_0_var(--color-night)] hover:bg-gray-100 active:translate-y-1 active:shadow-none transition-all z-20"
+          className="text-night border-night z-20 rounded-xl border-4 bg-white p-3 shadow-[4px_4px_0_var(--color-night)] transition-all hover:bg-gray-100 active:translate-y-1 active:shadow-none sm:p-4"
         >
           <ChevronLeft className="h-8 w-8 sm:h-10 sm:w-10" />
         </button>
 
         {/* Tarjeta del Héroe */}
-        <div className="mx-2 sm:mx-6 max-w-sm flex-1 relative perspective-1000">
+        <div className="perspective-1000 relative mx-2 max-w-sm flex-1 sm:mx-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={hero.id}
@@ -48,12 +43,12 @@ export function HeroSelector({
               animate={{ opacity: 1, scale: 1, x: 0 }}
               exit={{ opacity: 0, scale: 0.8, x: -100 }}
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className={`flex flex-col items-center gap-4 p-6 sm:p-8 rounded-3xl border-4 border-night shadow-[8px_8px_0_var(--color-night)] ${hero.color}`}
+              className={`border-night flex flex-col items-center gap-4 rounded-3xl border-4 p-6 shadow-[8px_8px_0_var(--color-night)] sm:p-8 ${hero.color}`}
             >
               {/* Contenedor del Avatar */}
-              <div className="bg-sky-blue/20 border-night relative flex h-48 w-48 sm:h-60 sm:w-60 items-center justify-center overflow-hidden rounded-2xl border-4 shadow-inner">
+              <div className="bg-sky-blue/20 border-night relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-2xl border-4 shadow-inner sm:h-60 sm:w-60">
                 {/* Piso simulado */}
-                <div className="absolute inset-x-0 bottom-0 h-6 bg-night/20" />
+                <div className="bg-night/20 absolute inset-x-0 bottom-0 h-6" />
 
                 <img
                   src={hero.image}
@@ -63,20 +58,20 @@ export function HeroSelector({
                 />
               </div>
 
-              <div className="text-center w-full">
-                <h3 className="font-display text-white text-3xl sm:text-4xl tracking-wide uppercase drop-shadow-[2px_2px_0_var(--color-night)]">
+              <div className="w-full text-center">
+                <h3 className="font-display text-3xl tracking-wide text-white uppercase drop-shadow-[2px_2px_0_var(--color-night)] sm:text-4xl">
                   {hero.name}
                 </h3>
 
-                <div className="bg-black/30 rounded-xl p-4 mt-3 border border-white/20">
-                  <p className="text-white font-bold min-h-[60px] text-sm sm:text-base italic leading-tight drop-shadow-sm">
+                <div className="mt-3 rounded-xl border border-white/20 bg-black/30 p-4">
+                  <p className="min-h-[60px] text-sm leading-tight font-bold text-white italic drop-shadow-sm sm:text-base">
                     "{hero.quote}"
                   </p>
                 </div>
               </div>
 
               {/* Indicador de posición */}
-              <div className="pixel-text bg-black/40 text-white px-3 py-1 rounded text-[10px] tracking-widest uppercase mt-2 font-bold">
+              <div className="pixel-text mt-2 rounded bg-black/40 px-3 py-1 text-[10px] font-bold tracking-widest text-white uppercase">
                 {idx + 1} / {HEROES.length}
               </div>
             </motion.div>
@@ -87,17 +82,17 @@ export function HeroSelector({
         <button
           onClick={next}
           aria-label="Siguiente"
-          className="bg-white text-night border-4 border-night rounded-xl p-3 sm:p-4 shadow-[4px_4px_0_var(--color-night)] hover:bg-gray-100 active:translate-y-1 active:shadow-none transition-all z-20"
+          className="text-night border-night z-20 rounded-xl border-4 bg-white p-3 shadow-[4px_4px_0_var(--color-night)] transition-all hover:bg-gray-100 active:translate-y-1 active:shadow-none sm:p-4"
         >
           <ChevronRight className="h-8 w-8 sm:h-10 sm:w-10" />
         </button>
       </div>
 
       {/* Botón de Confirmación Principal */}
-      <div className="relative z-10 mt-8 mb-6 flex justify-center w-full max-w-sm mx-auto">
+      <div className="relative z-10 mx-auto mt-8 mb-6 flex w-full max-w-sm justify-center">
         <button
           onClick={() => onConfirm(hero)}
-          className="bg-grass-green text-white border-4 border-night w-full rounded-2xl px-6 py-4 font-display uppercase tracking-widest text-xl sm:text-2xl shadow-[4px_8px_0_var(--color-night)] hover:translate-y-1 hover:shadow-[4px_4px_0_var(--color-night)] active:translate-y-2 active:shadow-none transition-all flex items-center justify-center gap-3"
+          className="bg-grass-green border-night font-display flex w-full items-center justify-center gap-3 rounded-2xl border-4 px-6 py-4 text-xl tracking-widest text-white uppercase shadow-[4px_8px_0_var(--color-night)] transition-all hover:translate-y-1 hover:shadow-[4px_4px_0_var(--color-night)] active:translate-y-2 active:shadow-none sm:text-2xl"
         >
           🎮 ¡ELEGIR A {hero.name}!
         </button>

@@ -14,16 +14,12 @@ export default [
     ignores: ['.next/**', 'node_modules/**', 'dist/**', '.turbo/**'],
   },
   ...compat.config({
-    extends: [
-      'next/core-web-vitals', 
-      'next/typescript',
-      'prettier'
-    ],
+    extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
       'react/no-unescaped-entities': 'off',
       // Regla vital para evitar bucles infinitos en componentes 3D
-      'react-hooks/exhaustive-deps': 'error'
+      'react-hooks/exhaustive-deps': 'error',
     },
   }),
 ]

@@ -4,13 +4,7 @@ import { EVENT, RSVP_KIDS_MSG, whatsappLink } from '@/lib/event'
 import type { Hero } from '@/lib/heroes'
 import { Countdown } from './countdown'
 
-export function MissionPanel({
-  hero,
-  onContinue,
-}: {
-  hero: Hero | null
-  onContinue: () => void
-}) {
+export function MissionPanel({ hero, onContinue }: { hero: Hero | null; onContinue: () => void }) {
   const objectives = [
     {
       icon: <MapPin className="h-5 w-5" />,
@@ -45,14 +39,9 @@ export function MissionPanel({
         </h2>
         {hero && (
           <div className="mt-3 flex items-center justify-center gap-2">
-            <img
-              src={hero.image}
-              alt={hero.name}
-              className="h-10 w-10 object-contain"
-            />
+            <img src={hero.image} alt={hero.name} className="h-10 w-10 object-contain" />
             <p className="text-sm text-white/80">
-              Héroe equipado:{' '}
-              <span className="font-display text-golden-coin">{hero.name}</span>
+              Héroe equipado: <span className="font-display text-golden-coin">{hero.name}</span>
             </p>
           </div>
         )}
@@ -72,7 +61,7 @@ export function MissionPanel({
             initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: i * 0.08 }}
-            className="voxel-card flex items-center gap-3 p-4 [background:oklch(0.24_0.05_260)] text-[oklch(0.99_0_0)]"
+            className="voxel-card flex items-center gap-3 p-4 text-[oklch(0.99_0_0)] [background:oklch(0.24_0.05_260)]"
           >
             <div className="bg-sky-blue text-night flex h-11 w-11 shrink-0 items-center justify-center rounded-md">
               {o.icon}
@@ -97,10 +86,7 @@ export function MissionPanel({
           ✅ CONFIRMAR MISIÓN
           <ExternalLink className="h-4 w-4" />
         </a>
-        <button
-          onClick={onContinue}
-          className="voxel-btn voxel-btn-coin w-full sm:w-auto"
-        >
+        <button onClick={onContinue} className="voxel-btn voxel-btn-coin w-full sm:w-auto">
           🎁 Ver inventario
         </button>
       </div>

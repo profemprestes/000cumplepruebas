@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss'
 
-
 export default {
   // En v4, el 'content' se detecta automáticamente, pero lo dejamos
   // explícito para mayor seguridad en compilaciones complejas.

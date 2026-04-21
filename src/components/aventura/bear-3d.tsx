@@ -33,14 +33,8 @@ function DuckModel() {
 
 export function Bear3D() {
   return (
-    <div
-      className="z-20 h-44 w-44 sm:h-56 sm:w-56"
-      style={{ pointerEvents: 'none' }}
-    >
-      <Canvas
-        camera={{ position: [0, 1.5, 4], fov: 50 }}
-        style={{ pointerEvents: 'auto' }}
-      >
+    <div className="z-20 h-44 w-44 sm:h-56 sm:w-56" style={{ pointerEvents: 'none' }}>
+      <Canvas camera={{ position: [0, 1.5, 4], fov: 50 }} style={{ pointerEvents: 'auto' }}>
         <ambientLight intensity={1.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <Suspense fallback={<Loader />}>

@@ -26,12 +26,7 @@ const QUESTIONS: Question[] = [
   },
   {
     q: '¿Qué hay que llevar SÍ o SÍ a la misión?',
-    options: [
-      'Patines',
-      'Medias y ropa cómoda',
-      'Capa de superhéroe',
-      'Linterna',
-    ],
+    options: ['Patines', 'Medias y ropa cómoda', 'Capa de superhéroe', 'Linterna'],
     correctIdx: 1,
     hint: 'Pista: KBOOM tiene piso especial.',
   },
@@ -43,11 +38,7 @@ const QUESTIONS: Question[] = [
   },
 ]
 
-export function MiniGames({
-  onContinue,
-}: {
-  onContinue: (score: number) => void
-}) {
+export function MiniGames({ onContinue }: { onContinue: (score: number) => void }) {
   const [idx, setIdx] = useState(0)
   const [picked, setPicked] = useState<number | null>(null)
   const [score, setScore] = useState(0)
@@ -98,10 +89,7 @@ export function MiniGames({
         <p className="mt-2 max-w-md text-center text-sm text-white/80">
           Sumaste XP de Facu-Lover. Ya estás listo para el panel de misión.
         </p>
-        <button
-          onClick={() => onContinue(score)}
-          className="voxel-btn voxel-btn-coin mt-8"
-        >
+        <button onClick={() => onContinue(score)} className="voxel-btn voxel-btn-coin mt-8">
           ▶ Continuar al briefing
         </button>
       </div>
@@ -122,11 +110,7 @@ export function MiniGames({
             <span
               key={i}
               className={`border-night h-2 w-8 rounded-sm border-2 ${
-                i < idx
-                  ? 'bg-grass-green'
-                  : i === idx
-                    ? 'bg-golden-coin'
-                    : 'bg-white/20'
+                i < idx ? 'bg-grass-green' : i === idx ? 'bg-golden-coin' : 'bg-white/20'
               }`}
             />
           ))}
@@ -144,11 +128,9 @@ export function MiniGames({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.25 }}
-            className="voxel-card p-5 bg-card text-card-foreground"
+            className="voxel-card bg-card text-card-foreground p-5"
           >
-            <p className="font-display text-lg leading-snug sm:text-xl">
-              {q.q}
-            </p>
+            <p className="font-display text-lg leading-snug sm:text-xl">{q.q}</p>
             <div className="mt-4 grid gap-2">
               {q.options.map((opt, i) => {
                 const isPicked = picked === i
@@ -170,9 +152,7 @@ export function MiniGames({
                   >
                     <span>{opt}</span>
                     {reveal && isRight && <Check className="h-5 w-5" />}
-                    {reveal && isPicked && !isRight && (
-                      <X className="h-5 w-5" />
-                    )}
+                    {reveal && isPicked && !isRight && <X className="h-5 w-5" />}
                   </button>
                 )
               })}
@@ -201,11 +181,7 @@ export function MiniGames({
             disabled={picked === null}
             className="voxel-btn voxel-btn-coin disabled:cursor-not-allowed disabled:opacity-50"
             aria-disabled={picked === null}
-            title={
-              picked === null
-                ? 'Seleccioná una respuesta para continuar'
-                : 'Siguiente'
-            }
+            title={picked === null ? 'Seleccioná una respuesta para continuar' : 'Siguiente'}
           >
             {idx + 1 >= QUESTIONS.length ? '▶ Ver resultado' : '▶ Siguiente'}
           </button>
