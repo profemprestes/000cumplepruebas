@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Luckiest_Guy, Fredoka, Press_Start_2P } from 'next/font/google'
+import { AdventureProvider } from '@/context/adventure-context'
+import { GlobalToastProvider } from '@/components/aventura/global-toast-provider'
 import '../styles.css'
 
 const luckiestGuy = Luckiest_Guy({
@@ -26,15 +28,7 @@ export const metadata: Metadata = {
   title: 'GRAN FACU AVENTURA — ¡Estás Invitado!',
   description:
     '¡Facu te invita a su cumpleaños Nivel 9! Una misión interactiva en KBOOM. Domingo 24 de mayo desde las 18:30hs.',
-  keywords: [
-    'cumpleaños',
-    'invitación',
-    'Facu',
-    'KBOOM',
-    'Nivel 9',
-    'aventura',
-    'voxel',
-  ],
+  keywords: ['cumpleaños', 'invitación', 'Facu', 'KBOOM', 'Nivel 9', 'aventura', 'voxel'],
   openGraph: {
     type: 'website',
     locale: 'es_UY',
@@ -54,8 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '🐻 GRAN FACU AVENTURA — ¡Estás Invitado!',
-    description:
-      '¡Facu te invita a su cumpleaños Nivel 9! Una misión interactiva en KBOOM.',
+    description: '¡Facu te invita a su cumpleaños Nivel 9! Una misión interactiva en KBOOM.',
     images: ['/logo_completo.png'],
   },
   icons: {
@@ -63,9 +56,7 @@ export const metadata: Metadata = {
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   manifest: '/site.webmanifest',
 }
@@ -76,18 +67,19 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="es"
       suppressHydrationWarning
       className={`${luckiestGuy.variable} ${fredoka.variable} ${pressStart.variable}`}
     >
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <AdventureProvider>
+          {children}
+          <GlobalToastProvider />
+        </AdventureProvider>
+      </body>
     </html>
   )
 }

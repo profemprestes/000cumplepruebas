@@ -7,11 +7,7 @@ export type Achievement = {
   description?: string
 }
 
-export function AchievementToast({
-  achievement,
-}: {
-  achievement: Achievement | null
-}) {
+export function AchievementToast({ achievement }: { achievement: Achievement | null }) {
   return (
     <div className="pointer-events-none fixed top-4 right-4 z-100 flex w-[min(92vw,360px)] flex-col gap-2">
       <AnimatePresence>
@@ -22,7 +18,7 @@ export function AchievementToast({
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 420, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-            className="voxel-card pointer-events-auto flex items-center gap-3 bg-night text-white p-3 shadow-[4px_4px_0_0_var(--color-golden-coin)] border-golden-coin"
+            className="voxel-card bg-night border-golden-coin pointer-events-auto flex items-center gap-3 p-3 text-white shadow-[4px_4px_0_0_var(--color-golden-coin)]"
             role="status"
             aria-live="polite"
           >
@@ -33,13 +29,9 @@ export function AchievementToast({
               <div className="pixel-text text-golden-coin text-[10px] tracking-widest uppercase">
                 ¡LOGRO DESBLOQUEADO! 🏆
               </div>
-              <div className="font-display text-base leading-tight">
-                {achievement.title}
-              </div>
+              <div className="font-display text-base leading-tight">{achievement.title}</div>
               {achievement.description && (
-                <div className="text-xs opacity-80 mt-1">
-                  {achievement.description}
-                </div>
+                <div className="mt-1 text-xs opacity-80">{achievement.description}</div>
               )}
             </div>
           </motion.div>

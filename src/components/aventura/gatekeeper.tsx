@@ -1,22 +1,17 @@
 import { motion } from 'framer-motion'
 import { Gamepad2, Shield } from 'lucide-react'
 
-export function Gatekeeper({
-  onChoose,
-}: {
-  onChoose: (mode: 'kid' | 'adult') => void
-}) {
+export function Gatekeeper({ onChoose }: { onChoose: (mode: 'kid' | 'adult') => void }) {
   return (
-    <div className="bg-sky-blue relative flex min-h-screen w-full flex-col items-center justify-center p-4 overflow-hidden">
-
+    <div className="bg-sky-blue relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden p-4">
       {/* Fondo decorativo (opcional, simulando partículas) */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white to-transparent opacity-20" />
 
-      <header className="relative z-10 px-6 pt-8 pb-4 text-center sm:pt-12 w-full max-w-2xl">
+      <header className="relative z-10 w-full max-w-2xl px-6 pt-8 pb-4 text-center sm:pt-12">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="font-display text-white text-4xl drop-shadow-[4px_4px_0_var(--color-teddy-brown)] sm:text-6xl uppercase tracking-wider"
+          className="font-display text-4xl tracking-wider text-white uppercase drop-shadow-[4px_4px_0_var(--color-teddy-brown)] sm:text-6xl"
         >
           ¡Alto Ahí! 🛑
         </motion.h1>
@@ -26,9 +21,9 @@ export function Gatekeeper({
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-white/95 backdrop-blur-sm border-4 border-teddy-brown rounded-xl p-4 sm:p-6 mt-6 mx-auto shadow-[6px_6px_0_var(--color-teddy-brown)] max-w-lg"
+          className="border-teddy-brown mx-auto mt-6 max-w-lg rounded-xl border-4 bg-white/95 p-4 shadow-[6px_6px_0_var(--color-teddy-brown)] backdrop-blur-sm sm:p-6"
         >
-          <p className="text-teddy-brown font-amble text-base sm:text-lg font-bold leading-relaxed text-center">
+          <p className="text-teddy-brown font-amble text-center text-base leading-relaxed font-bold sm:text-lg">
             "¡Facu desbloqueó el Nivel 9 en KBOOM! ¿Quién se suma a la partida?"
           </p>
         </motion.div>
@@ -44,7 +39,7 @@ export function Gatekeeper({
           delay={0.3}
         />
         <ModeCard
-          icon={<Shield className="h-10 w-10 text-teddy-brown" />}
+          icon={<Shield className="text-teddy-brown h-10 w-10" />}
           title="Guardián"
           subtitle="Ruta Padres: Info rápida y logística"
           color="teddy"
@@ -72,11 +67,15 @@ function ModeCard({
   delay: number
 }) {
   // Ajustamos los colores para que resalten más al estilo videojuego
-  const bg = color === 'sky'
-    ? 'bg-grass-green text-white border-night'
-    : 'bg-golden-coin text-teddy-brown border-teddy-brown'
+  const bg =
+    color === 'sky'
+      ? 'bg-grass-green text-white border-night'
+      : 'bg-golden-coin text-teddy-brown border-teddy-brown'
 
-  const shadowClass = color === 'sky' ? 'shadow-[6px_8px_0_var(--color-grass-green)]' : 'shadow-[6px_8px_0_var(--color-teddy-brown)]'
+  const shadowClass =
+    color === 'sky'
+      ? 'shadow-[6px_8px_0_var(--color-grass-green)]'
+      : 'shadow-[6px_8px_0_var(--color-teddy-brown)]'
 
   return (
     <motion.button
@@ -86,26 +85,24 @@ function ModeCard({
       whileHover={{ scale: 1.03, y: -4 }}
       whileTap={{ scale: 0.97, y: 2 }}
       onClick={onClick}
-      className={`voxel-card relative w-full max-w-md overflow-hidden p-6 text-left border-4 rounded-2xl ${bg} ${shadowClass}`}
+      className={`voxel-card relative w-full max-w-md overflow-hidden rounded-2xl border-4 p-6 text-left ${bg} ${shadowClass}`}
     >
-      <div className="absolute inset-0 opacity-0 transition-opacity duration-300 hover:opacity-100 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 hover:opacity-100">
         <div className="animate-shine absolute inset-0 bg-white/20" />
       </div>
 
-      <div className="relative flex flex-col gap-3 h-full">
-        <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-white/30 backdrop-blur-sm border-2 border-white/50 shadow-inner">
+      <div className="relative flex h-full flex-col gap-3">
+        <div className="flex h-16 w-16 items-center justify-center rounded-xl border-2 border-white/50 bg-white/30 shadow-inner backdrop-blur-sm">
           {icon}
         </div>
 
-        <h2 className="font-display text-2xl tracking-wide uppercase sm:text-3xl drop-shadow-sm mt-2">
+        <h2 className="font-display mt-2 text-2xl tracking-wide uppercase drop-shadow-sm sm:text-3xl">
           {title}
         </h2>
 
-        <p className="text-sm sm:text-base font-bold opacity-90 flex-1">
-          {subtitle}
-        </p>
+        <p className="flex-1 text-sm font-bold opacity-90 sm:text-base">{subtitle}</p>
 
-        <div className="pixel-text mt-4 inline-block bg-black/20 px-3 py-2 rounded text-[10px] tracking-widest uppercase opacity-90 w-max font-bold">
+        <div className="pixel-text mt-4 inline-block w-max rounded bg-black/20 px-3 py-2 text-[10px] font-bold tracking-widest uppercase opacity-90">
           ▶ PRESIONAR START
         </div>
       </div>

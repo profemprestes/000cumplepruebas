@@ -4,20 +4,19 @@ import { GIFTS, RARITY_STYLES } from '@/lib/gifts'
 
 export function GiftInventory({ onClose }: { onClose: () => void }) {
   return (
-    <div className="bg-night/95 min-h-screen w-full px-4 py-8 sm:px-6 flex flex-col items-center justify-center relative overflow-hidden">
-
+    <div className="bg-night/95 relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-4 py-8 sm:px-6">
       {/* Fondo con leve textura/partículas */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white/5 to-transparent opacity-50" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white/5 to-transparent opacity-50" />
 
-      <header className="relative z-10 mx-auto max-w-3xl text-center mb-8">
-        <div className="pixel-text bg-teddy-brown inline-flex items-center gap-2 rounded-md px-4 py-2 text-[10px] tracking-widest text-white uppercase border-2 border-white/20 shadow-[3px_3px_0_#000] mb-4">
+      <header className="relative z-10 mx-auto mb-8 max-w-3xl text-center">
+        <div className="pixel-text bg-teddy-brown mb-4 inline-flex items-center gap-2 rounded-md border-2 border-white/20 px-4 py-2 text-[10px] tracking-widest text-white uppercase shadow-[3px_3px_0_#000]">
           <Package className="h-4 w-4" /> Escaneo de Stats
         </div>
 
         <motion.h2
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="font-display text-golden-coin mt-2 text-4xl sm:text-6xl drop-shadow-[3px_3px_0_#000] tracking-wide uppercase"
+          className="font-display text-golden-coin mt-2 text-4xl tracking-wide uppercase drop-shadow-[3px_3px_0_#000] sm:text-6xl"
         >
           El Inventario de Facu 🎒
         </motion.h2>
@@ -26,13 +25,15 @@ export function GiftInventory({ onClose }: { onClose: () => void }) {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="text-white/90 mt-4 font-bold text-sm sm:text-base max-w-xl mx-auto leading-relaxed bg-black/30 p-4 rounded-xl border border-white/10"
+          className="mx-auto mt-4 max-w-xl rounded-xl border border-white/10 bg-black/30 p-4 text-sm leading-relaxed font-bold text-white/90 sm:text-base"
         >
-          El mejor <span className="text-grass-green font-black">loot (recompensa)</span> de esta misión es que vengas a festejar. ¡Tu presencia ya es un nivel superado! Pero si querés caer con un "power-up" sorpresa, los hackers de la base nos filtraron sus gustos:
+          El mejor <span className="text-grass-green font-black">loot (recompensa)</span> de esta
+          misión es que vengas a festejar. ¡Tu presencia ya es un nivel superado! Pero si querés
+          caer con un "power-up" sorpresa, los hackers de la base nos filtraron sus gustos:
         </motion.p>
       </header>
 
-      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl w-full">
+      <div className="relative z-10 grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
         {GIFTS.map((gift, index) => {
           const style = RARITY_STYLES[gift.rarity]
           return (
@@ -42,21 +43,23 @@ export function GiftInventory({ onClose }: { onClose: () => void }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
               whileHover={{ scale: 1.02 }}
-              className="voxel-card bg-sky-blue/10 border-4 border-white/20 shadow-[4px_4px_0_#000] p-4 sm:p-5 rounded-2xl flex items-start gap-4 backdrop-blur-md"
+              className="voxel-card bg-sky-blue/10 flex items-start gap-4 rounded-2xl border-4 border-white/20 p-4 shadow-[4px_4px_0_#000] backdrop-blur-md sm:p-5"
             >
-              <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border-2 border-night shadow-[3px_3px_0_#000] bg-white text-3xl`}>
+              <div
+                className={`border-night flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border-2 bg-white text-3xl shadow-[3px_3px_0_#000]`}
+              >
                 {gift.icon}
               </div>
-              <div className="flex-1 min-w-0">
-                <div className={`text-[10px] font-black tracking-widest uppercase mb-1 ${style.text} drop-shadow-[1px_1px_0_#000]`}>
+              <div className="min-w-0 flex-1">
+                <div
+                  className={`mb-1 text-[10px] font-black tracking-widest uppercase ${style.text} drop-shadow-[1px_1px_0_#000]`}
+                >
                   {style.label}
                 </div>
-                <h3 className="font-display text-white text-xl sm:text-2xl tracking-wide mb-1 drop-shadow-md">
+                <h3 className="font-display mb-1 text-xl tracking-wide text-white drop-shadow-md sm:text-2xl">
                   {gift.name}
                 </h3>
-                <p className="text-white/80 text-sm font-bold leading-tight">
-                  {gift.description}
-                </p>
+                <p className="text-sm leading-tight font-bold text-white/80">{gift.description}</p>
               </div>
             </motion.div>
           )
@@ -69,7 +72,7 @@ export function GiftInventory({ onClose }: { onClose: () => void }) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8 }}
         onClick={onClose}
-        className="relative z-10 mt-8 bg-destructive text-destructive-foreground border-4 border-night rounded-xl px-8 py-3 font-display uppercase tracking-widest text-lg shadow-[4px_6px_0_#000] hover:translate-y-1 hover:shadow-[4px_2px_0_#000] active:translate-y-2 active:shadow-none transition-all"
+        className="bg-destructive text-destructive-foreground border-night font-display relative z-10 mt-8 rounded-xl border-4 px-8 py-3 text-lg tracking-widest uppercase shadow-[4px_6px_0_#000] transition-all hover:translate-y-1 hover:shadow-[4px_2px_0_#000] active:translate-y-2 active:shadow-none"
       >
         ❌ Cerrar Inventario
       </motion.button>

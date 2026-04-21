@@ -23,9 +23,7 @@ export function DialogBox({
           {speaker}
         </span>
       </div>
-      <div className="text-foreground text-base leading-relaxed sm:text-lg">
-        {children}
-      </div>
+      <div className="text-foreground text-base leading-relaxed sm:text-lg">{children}</div>
     </motion.div>
   )
 }

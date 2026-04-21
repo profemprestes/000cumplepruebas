@@ -15,7 +15,8 @@ export const HEROES: Hero[] = [
     image:
       'https://res.cloudinary.com/dbsm6mqcg/image/upload/q_auto/f_auto/v1776643490/Baaren.render_yrbejm.webp',
     color: 'bg-teddy-brown',
-    quote: '¡Prepárense para el impacto, bo! Fuerte como un oso y listo para romperla en los minijuegos.',
+    quote:
+      '¡Prepárense para el impacto, bo! Fuerte como un oso y listo para romperla en los minijuegos.',
   },
   {
     id: 'shicka',
@@ -51,7 +52,8 @@ export const HEROES: Hero[] = [
     image:
       'https://res.cloudinary.com/dbsm6mqcg/image/upload/q_auto/f_auto/v1776643492/Reina_render_Mirabeja_imufxb.png',
     color: 'bg-golden-coin',
-    quote: '¡Bzzzz! La reina del enjambre está conectada. ¿Te sumás a mi escuadrón para el Nivel 9?',
+    quote:
+      '¡Bzzzz! La reina del enjambre está conectada. ¿Te sumás a mi escuadrón para el Nivel 9?',
   },
 ]
 

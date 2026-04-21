@@ -3,16 +3,12 @@ import { createClient } from '@supabase/supabase-js'
 import type { Database } from './types'
 
 function createSupabaseClient() {
-  const SUPABASE_URL =
-    process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL
+  const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL
   const SUPABASE_PUBLISHABLE_KEY =
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-    process.env.SUPABASE_PUBLISHABLE_KEY
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_PUBLISHABLE_KEY
 
   if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
-    console.error(
-      'Supabase URL or Publishable Key is missing. Using placeholder values for build.',
-    )
+    console.error('Supabase URL or Publishable Key is missing. Using placeholder values for build.')
     return createClient<Database>(
       'https://placeholder.supabase.co',
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder.placeholder',

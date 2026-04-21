@@ -39,9 +39,7 @@ export function Countdown({ targetISO }: { targetISO: string }) {
     <div className="flex items-stretch justify-center gap-2 sm:gap-3">
       {cells.map((c) => (
         <div key={c.label} className="flex flex-col items-center">
-          <div
-            className="voxel-card flex h-14 w-14 flex-col items-center justify-center border-golden-coin shadow-[3px_3px_0_0_var(--color-night)]"
-          >
+          <div className="voxel-card border-golden-coin flex h-14 w-14 flex-col items-center justify-center shadow-[3px_3px_0_0_var(--color-night)]">
             <AnimatePresence mode="popLayout">
               <motion.span
                 key={c.value}

@@ -8,10 +8,7 @@ export type GiftItem = {
   description: string
 }
 
-export const RARITY_STYLES: Record<
-  Rarity,
-  { label: string; ring: string; text: string }
-> = {
+export const RARITY_STYLES: Record<Rarity, { label: string; ring: string; text: string }> = {
   comun: {
     label: 'Drop Común',
     ring: 'ring-grass-green/50',
