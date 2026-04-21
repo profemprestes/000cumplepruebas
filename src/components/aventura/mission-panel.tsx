@@ -72,7 +72,7 @@ export function MissionPanel({
             initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: i * 0.08 }}
-            className="voxel-card flex items-center gap-3 p-4 [background:oklch(0.24_0.05_260)] [color:oklch(0.99_0_0)]"
+            className="voxel-card flex items-center gap-3 p-4 [background:oklch(0.24_0.05_260)] text-[oklch(0.99_0_0)]"
           >
             <div className="bg-sky-blue text-night flex h-11 w-11 shrink-0 items-center justify-center rounded-md">
               {o.icon}

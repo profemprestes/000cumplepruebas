@@ -102,4 +102,6 @@ Wait, looking at the file changes again - only source code files were modified (
 # Qwen settings
 .qwen/
 ```
+skills/
+.antigravity/
 skills

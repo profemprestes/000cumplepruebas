@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { DialogBox } from './dialog-box'
 import { EVENT } from '@/lib/event'
 import { HEROES, FACU_HERO_IMAGE } from '@/lib/heroes'
+import { Bear3D } from './bear-3d'
 
 const SHICKA_IMG = HEROES.find((h) => h.id === 'shicka')!.image
 
@@ -32,22 +33,31 @@ export function SceneShichaIntro({ onContinue }: { onContinue: () => void }) {
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-end gap-6 pb-8">
         {/* Contenedor de Personajes */}
-        <div className="flex items-end gap-2 sm:gap-4 -mb-4 z-20">
+        <div className="flex items-end justify-center gap-2 sm:gap-4 -mb-4 z-20 w-full">
           <motion.img
             src={FACU_HERO_IMAGE}
             alt="Facu"
             initial={{ x: -150, opacity: 0, rotate: -10 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 100, damping: 15, delay: 0.2 }}
-            className="animate-float h-44 w-44 object-contain drop-shadow-[6px_6px_0_var(--color-night)] sm:h-56 sm:w-56"
+            className="animate-float h-36 w-36 object-contain drop-shadow-[6px_6px_0_var(--color-night)] sm:h-48 sm:w-48"
           />
+          
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: 'spring', stiffness: 80, damping: 12, delay: 0.8 }}
+          >
+            <Bear3D />
+          </motion.div>
+
           <motion.img
             src={SHICKA_IMG}
             alt="Shicka"
             initial={{ x: 200, opacity: 0, rotate: 10 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 100, damping: 15 }}
-            className="animate-float h-48 w-48 object-contain drop-shadow-[6px_6px_0_var(--color-night)] sm:h-64 sm:w-64 [animation-delay:0.5s]"
+            className="animate-float h-40 w-40 object-contain drop-shadow-[6px_6px_0_var(--color-night)] sm:h-52 sm:w-52 [animation-delay:0.5s]"
           />
         </div>
 
