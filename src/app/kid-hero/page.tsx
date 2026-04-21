@@ -9,7 +9,7 @@ export default function KidHeroPage() {
   const { setHero, unlockAchievement } = useAdventureContext()
 
   return (
-    <main className="bg-tactile-adventure min-h-screen w-full">
+    <main className="bg-sky-blue min-h-screen w-full">
       <HeroSelector
         onConfirm={(h) => {
           setHero(h)

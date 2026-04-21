@@ -7,7 +7,7 @@ export default function KidIntroPage() {
   const router = useRouter()
 
   return (
-    <main className="bg-tactile-adventure min-h-screen w-full">
+    <main className="bg-sky-blue min-h-screen w-full">
       <SceneShichaIntro onContinue={() => router.push('/kid-hero')} />
     </main>
   )

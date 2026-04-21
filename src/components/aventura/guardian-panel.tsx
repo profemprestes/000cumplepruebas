@@ -31,8 +31,22 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
   ]
 
   return (
-    <div className="bg-sky-blue/30 min-h-screen w-full px-4 py-8 sm:px-6">
-      <header className="mx-auto max-w-2xl text-center">
+    <div className="bg-sky-blue relative min-h-screen w-full overflow-hidden px-4 py-8 sm:px-6">
+      {/* Fondo con nubes decorativas (estilo Cielo/Día) */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <motion.div
+          animate={{ x: [0, 60, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+          className="bg-cloud-soft absolute top-20 -left-20 h-80 w-80 rounded-full blur-3xl opacity-40"
+        />
+        <motion.div
+          animate={{ x: [0, -50, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+          className="bg-white/30 absolute bottom-40 -right-20 h-96 w-96 rounded-full blur-[100px]"
+        />
+      </div>
+
+      <header className="relative z-10 mx-auto max-w-2xl text-center">
         <div className="pixel-text bg-teddy-brown border-night mx-auto inline-flex items-center gap-2 rounded-md border-2 px-4 py-2 text-[10px] tracking-widest text-white uppercase shadow-[3px_3px_0_#000]">
           <Shield className="h-4 w-4" /> Modo Guardián
         </div>
@@ -47,7 +61,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="voxel-card border-night divide-night/10 mx-auto mt-8 max-w-2xl divide-y overflow-hidden rounded-xl border-4 bg-white shadow-[6px_6px_0_var(--color-teddy-brown-deep)]"
+        className="voxel-card border-night divide-night/10 relative z-10 mx-auto mt-8 max-w-2xl divide-y overflow-hidden rounded-xl border-4 bg-white shadow-[6px_6px_0_var(--color-teddy-brown)]"
       >
         {rows.map((r) => (
           <div
@@ -64,7 +78,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
                 {r.label}
               </div>
               <div
-                className={`text-sm font-bold sm:text-base ${r.highlight ? 'text-red-600' : 'text-night'}`}
+                className={`text-sm font-bold sm:text-base ${r.highlight ? 'text-destructive' : 'text-night'}`}
               >
                 {r.value}
               </div>
@@ -74,7 +88,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
       </motion.div>
 
       {/* Mapa (Radar) */}
-      <div className="voxel-card border-night mx-auto mt-6 max-w-2xl overflow-hidden rounded-xl border-4 bg-white p-0 shadow-[6px_6px_0_var(--color-teddy-brown-deep)]">
+      <div className="voxel-card border-night relative z-10 mx-auto mt-6 max-w-2xl overflow-hidden rounded-xl border-4 bg-white p-0 shadow-[6px_6px_0_var(--color-teddy-brown)]">
         <iframe
           title="Mapa KBOOM"
           src={EVENT.mapsEmbed}
@@ -93,12 +107,12 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
       </div>
 
       {/* Contacto del Local */}
-      <div className="mx-auto mt-6 grid max-w-2xl gap-4 sm:grid-cols-2">
+      <div className="relative z-10 mx-auto mt-6 grid max-w-2xl gap-4 sm:grid-cols-2">
         <a
           href={`mailto:${EVENT.email}`}
-          className="voxel-card voxel-card-hover border-night flex items-center gap-3 rounded-xl border-4 bg-white p-4 shadow-[4px_4px_0_var(--color-teddy-brown-deep)]"
+          className="voxel-card voxel-card-hover border-night flex items-center gap-3 rounded-xl border-4 bg-white p-4 shadow-[4px_4px_0_var(--color-teddy-brown)]"
         >
-          <Mail className="text-sky-blue h-6 w-6 drop-shadow-sm" />
+          <Mail className="text-sky-blue h-6 w-6" />
           <div className="min-w-0">
             <div className="text-night/60 text-xs font-bold tracking-wide uppercase">
               Email Base
@@ -110,9 +124,9 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
           href={EVENT.instagram}
           target="_blank"
           rel="noreferrer"
-          className="voxel-card voxel-card-hover border-night flex items-center gap-3 rounded-xl border-4 bg-white p-4 shadow-[4px_4px_0_var(--color-teddy-brown-deep)]"
+          className="voxel-card voxel-card-hover border-night flex items-center gap-3 rounded-xl border-4 bg-white p-4 shadow-[4px_4px_0_var(--color-teddy-brown)]"
         >
-          <Instagram className="text-rosa h-6 w-6 drop-shadow-sm" />
+          <Instagram className="text-rosa h-6 w-6" />
           <div className="min-w-0">
             <div className="text-night/60 text-xs font-bold tracking-wide uppercase">Instagram</div>
             <div className="text-night truncate text-sm font-bold">{EVENT.instagramHandle}</div>
@@ -121,7 +135,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
       </div>
 
       {/* Botones de Acción */}
-      <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-4">
+      <div className="relative z-10 mx-auto mt-10 flex max-w-2xl flex-col items-center gap-4">
         <a
           href={whatsappLink(RSVP_PARENTS_MSG)}
           target="_blank"

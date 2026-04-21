@@ -9,7 +9,7 @@ export default function Index() {
   const { unlockAchievement } = useAdventureContext()
 
   return (
-    <main className="bg-tactile-adventure min-h-screen w-full">
+    <main className="bg-sky-blue min-h-screen w-full">
       <Loader
         onStart={() => {
           unlockAchievement('Sistema iniciado', 'Bienvenido a la Gran Facu Aventura')

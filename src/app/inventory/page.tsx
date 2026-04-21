@@ -9,7 +9,7 @@ export default function InventoryPage() {
   const { setHero } = useAdventureContext()
 
   return (
-    <main className="bg-tactile-adventure min-h-screen w-full">
+    <main className="bg-sky-blue min-h-screen w-full">
       <GiftInventory
         onClose={() => {
           setHero(null)

@@ -65,57 +65,75 @@ export function MiniGames({ onContinue }: { onContinue: (score: number) => void 
   if (done) {
     const perfect = score === QUESTIONS.length
     return (
-      <div className="bg-night-grid relative flex min-h-screen w-full flex-col items-center justify-center px-6 py-10 text-white">
-        <motion.img
-          src={FACU_HERO_IMAGE}
-          alt="Facu"
-          initial={{ scale: 0.6, opacity: 0, y: 20 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          transition={{ type: 'spring', duration: 0.7 }}
-          className="h-44 w-44 object-contain drop-shadow-[4px_4px_0_var(--color-golden-coin)] sm:h-56 sm:w-56"
-        />
-        <div className="pixel-text bg-golden-coin text-night mt-4 inline-block rounded-md px-3 py-1 text-[10px] tracking-widest uppercase">
-          Trivia completada
-        </div>
-        <h2 className="font-display text-golden-coin mt-3 text-center text-3xl sm:text-4xl">
-          {perfect ? '¡PUNTAJE PERFECTO!' : '¡BIEN AHÍ, AVENTURERO!'}
-        </h2>
-        <div className="mt-4 flex items-center gap-2 text-lg">
-          <Trophy className="text-golden-coin h-6 w-6" />
-          <span className="font-display tabular-nums">
-            {score} / {QUESTIONS.length}
-          </span>
-        </div>
-        <p className="mt-2 max-w-md text-center text-sm text-white/80">
-          Sumaste XP de Facu-Lover. Ya estás listo para el panel de misión.
-        </p>
-        <button onClick={() => onContinue(score)} className="voxel-btn voxel-btn-coin mt-8">
-          ▶ Continuar al briefing
-        </button>
+      <div className="bg-sky-blue relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-6 py-10 text-night">
+        {/* Nubes decorativas */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white/20 to-transparent opacity-50" />
+
+        <header className="relative z-10 mb-6 text-center">
+          <div className="pixel-text bg-night text-golden-coin border-night mx-auto inline-block rounded-md border-2 px-3 py-1 text-[10px] tracking-widest uppercase shadow-[3px_3px_0_var(--color-night)]">
+            Trivia completada
+          </div>
+        </header>
+
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="voxel-card relative z-10 flex w-full max-w-sm flex-col items-center bg-white p-8 text-center"
+        >
+          <motion.img
+            src={FACU_HERO_IMAGE}
+            alt="Facu"
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
+            className="animate-float h-40 w-40 object-contain drop-shadow-[4px_4px_0_var(--color-golden-coin)] sm:h-48 sm:w-48"
+          />
+
+          <h2 className="font-display text-night mt-6 text-3xl sm:text-4xl">
+            {perfect ? '¡PUNTAJE PERFECTO!' : '¡BIEN AHÍ, AVENTURERO!'}
+          </h2>
+
+          <div className="mt-4 flex items-center gap-2 text-2xl">
+            <Trophy className="text-golden-coin h-8 w-8 drop-shadow-[1px_1px_0_var(--color-night)]" />
+            <span className="font-display tabular-nums text-night">
+              {score} / {QUESTIONS.length}
+            </span>
+          </div>
+
+          <p className="mt-4 text-sm font-bold text-night/70">
+            Sumaste XP de Facu-Lover. Ya estás listo para el panel de misión.
+          </p>
+
+          <button onClick={() => onContinue(score)} className="voxel-btn voxel-btn-coin mt-8 w-full">
+            ▶ CONTINUAR
+          </button>
+        </motion.div>
       </div>
     )
   }
 
   return (
-    <div className="bg-night-grid relative flex min-h-screen w-full flex-col px-5 py-8 text-white">
-      <header className="mx-auto w-full max-w-xl text-center">
-        <div className="pixel-text bg-golden-coin text-night mx-auto inline-block rounded-md px-3 py-1 text-[10px] tracking-widest uppercase">
+    <div className="bg-sky-blue relative flex min-h-screen w-full flex-col px-5 py-8 text-night overflow-hidden">
+      {/* Nubes */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white/20 to-transparent opacity-50" />
+
+      <header className="relative z-10 mx-auto w-full max-w-xl text-center">
+        <div className="pixel-text bg-night text-golden-coin border-night mx-auto inline-block rounded-md border-2 px-3 py-1 text-[10px] tracking-widest uppercase shadow-[3px_3px_0_var(--color-night)]">
           Mini-juego · Trivia Facu
         </div>
-        <h2 className="font-display text-golden-coin mt-3 text-2xl sm:text-3xl">
-          ¿Cuánto sabés del cumpleañero?
+        <h2 className="font-display text-white mt-3 text-2xl drop-shadow-[3px_3px_0_var(--color-night)] sm:text-4xl">
+          ¿Cuánto sabés?
         </h2>
-        <div className="mt-3 flex items-center justify-center gap-2">
+        <div className="mt-4 flex items-center justify-center gap-2">
           {QUESTIONS.map((_, i) => (
             <span
               key={i}
-              className={`border-night h-2 w-8 rounded-sm border-2 ${
-                i < idx ? 'bg-grass-green' : i === idx ? 'bg-golden-coin' : 'bg-white/20'
+              className={`border-night h-3 w-8 rounded-sm border-2 shadow-[2px_2px_0_var(--color-night)] ${
+                i < idx ? 'bg-grass-green' : i === idx ? 'bg-golden-coin' : 'bg-white'
               }`}
             />
           ))}
         </div>
-        <div className="pixel-text mt-2 text-[10px] tracking-widest text-white/70 uppercase">
+        <div className="pixel-text mt-3 text-[10px] font-bold tracking-widest text-night/80 uppercase">
           Pregunta {idx + 1} / {QUESTIONS.length} · Score {score}
         </div>
       </header>
@@ -137,12 +155,12 @@ export function MiniGames({ onContinue }: { onContinue: (score: number) => void 
                 const reveal = picked !== null
                 const isRight = i === q.correctIdx
                 const tone = !reveal
-                  ? 'bg-white/5 hover:bg-sky-blue/30 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_var(--night)] active:translate-y-0.5 active:shadow-none transition-all duration-200'
+                  ? 'bg-white hover:bg-sky-blue/30 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_var(--color-night)] active:translate-y-0.5 active:shadow-none transition-all duration-200'
                   : isRight
-                    ? 'bg-grass-green text-night shadow-[2px_2px_0_0_var(--night)] -translate-y-0.5'
+                    ? 'bg-grass-green text-white shadow-[4px_4px_0_0_var(--color-night)] -translate-y-0.5'
                     : isPicked
                       ? 'bg-destructive text-white translate-y-0.5'
-                      : 'bg-white/5 opacity-40'
+                      : 'bg-gray-100 opacity-60'
                 return (
                   <button
                     key={i}

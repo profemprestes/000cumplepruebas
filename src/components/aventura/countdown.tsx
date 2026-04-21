@@ -53,7 +53,7 @@ export function Countdown({ targetISO }: { targetISO: string }) {
               </motion.span>
             </AnimatePresence>
           </div>
-          <div className="pixel-text mt-1 text-[9px] tracking-widest text-white/80 uppercase">
+          <div className="pixel-text mt-1 text-[9px] tracking-widest text-night/80 uppercase">
             {c.label}
           </div>
         </div>

@@ -18,7 +18,7 @@ export function AchievementToast({ achievement }: { achievement: Achievement | n
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 420, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-            className="voxel-card bg-night border-golden-coin pointer-events-auto flex items-center gap-3 p-3 text-white shadow-[4px_4px_0_0_var(--color-golden-coin)]"
+            className="voxel-card border-night bg-white pointer-events-auto flex items-center gap-3 p-3 text-night shadow-[4px_4px_0_0_var(--color-golden-coin)]"
             role="status"
             aria-live="polite"
           >
