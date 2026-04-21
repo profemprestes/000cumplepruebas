@@ -56,7 +56,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="voxel-card bg-white border-4 border-night shadow-[6px_6px_0_#4E342E] divide-night/10 mx-auto mt-8 max-w-2xl divide-y overflow-hidden rounded-xl"
+        className="voxel-card bg-white border-4 border-night shadow-[6px_6px_0_var(--color-teddy-brown-deep)] divide-night/10 mx-auto mt-8 max-w-2xl divide-y overflow-hidden rounded-xl"
       >
         {rows.map((r) => (
           <div
@@ -79,7 +79,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
       </motion.div>
 
       {/* Mapa (Radar) */}
-      <div className="voxel-card bg-white border-4 border-night shadow-[6px_6px_0_#4E342E] mx-auto mt-6 max-w-2xl overflow-hidden p-0 rounded-xl">
+      <div className="voxel-card bg-white border-4 border-night shadow-[6px_6px_0_var(--color-teddy-brown-deep)] mx-auto mt-6 max-w-2xl overflow-hidden p-0 rounded-xl">
         <iframe
           title="Mapa KBOOM"
           src={EVENT.mapsEmbed}
@@ -100,7 +100,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
       <div className="mx-auto mt-6 grid max-w-2xl gap-4 sm:grid-cols-2">
         <a
           href={`mailto:${EVENT.email}`}
-          className="voxel-card voxel-card-hover bg-white border-4 border-night shadow-[4px_4px_0_#4E342E] flex items-center gap-3 p-4 rounded-xl"
+          className="voxel-card voxel-card-hover bg-white border-4 border-night shadow-[4px_4px_0_var(--color-teddy-brown-deep)] flex items-center gap-3 p-4 rounded-xl"
         >
           <Mail className="text-sky-blue h-6 w-6 drop-shadow-sm" />
           <div className="min-w-0">
@@ -114,7 +114,7 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
           href={EVENT.instagram}
           target="_blank"
           rel="noreferrer"
-          className="voxel-card voxel-card-hover bg-white border-4 border-night shadow-[4px_4px_0_#4E342E] flex items-center gap-3 p-4 rounded-xl"
+          className="voxel-card voxel-card-hover bg-white border-4 border-night shadow-[4px_4px_0_var(--color-teddy-brown-deep)] flex items-center gap-3 p-4 rounded-xl"
         >
           <Instagram className="text-rosa h-6 w-6 drop-shadow-sm" />
           <div className="min-w-0">
@@ -132,13 +132,13 @@ export function GuardianPanel({ onContinue }: { onContinue: () => void }) {
           href={whatsappLink(RSVP_PARENTS_MSG)}
           target="_blank"
           rel="noreferrer"
-          className="bg-grass-green text-white border-4 border-night rounded-xl px-6 py-4 w-full sm:w-auto font-display uppercase tracking-widest text-lg sm:text-xl shadow-[4px_6px_0_#000] hover:translate-y-1 hover:shadow-[4px_2px_0_#000] active:translate-y-2 active:shadow-none transition-all flex items-center justify-center gap-3"
+          className="bg-grass-green text-white border-4 border-night rounded-xl px-6 py-4 w-full sm:w-auto font-display uppercase tracking-widest text-lg sm:text-xl shadow-[4px_6px_0_var(--color-night)] hover:translate-y-1 hover:shadow-[4px_2px_0_var(--color-night)] active:translate-y-2 active:shadow-none transition-all flex items-center justify-center gap-3"
         >
           ✅ Confirmar Asistencia
         </a>
         <button
           onClick={onContinue}
-          className="bg-golden-coin text-night border-4 border-night rounded-xl px-6 py-4 w-full sm:w-auto font-display uppercase tracking-widest text-base sm:text-lg shadow-[4px_4px_0_#000] hover:translate-y-1 hover:shadow-[4px_2px_0_#000] active:translate-y-2 active:shadow-none transition-all"
+          className="bg-golden-coin text-night border-4 border-night rounded-xl px-6 py-4 w-full sm:w-auto font-display uppercase tracking-widest text-base sm:text-lg shadow-[4px_4px_0_var(--color-night)] hover:translate-y-1 hover:shadow-[4px_2px_0_var(--color-night)] active:translate-y-2 active:shadow-none transition-all"
         >
           🎁 Ver Guía SOBRE MI
         </button>

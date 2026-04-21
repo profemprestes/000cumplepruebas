@@ -11,7 +11,7 @@ import { GuardianPanel } from '@/components/aventura/guardian-panel'
 import { GiftInventory } from '@/components/aventura/gift-inventory'
 import { SceneTransition } from '@/components/aventura/scene-transition'
 import { AchievementToast } from '@/components/aventura/achievement-toast'
-import { useAchievements } from '@/components/aventura/use-achievements'
+import { useAchievements } from '@/hooks/use-achievements'
 import type { Hero } from '@/lib/heroes'
 
 type Scene =

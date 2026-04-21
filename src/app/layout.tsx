@@ -1,5 +1,25 @@
 import type { Metadata, Viewport } from 'next'
+import { Luckiest_Guy, Fredoka, Press_Start_2P } from 'next/font/google'
 import '../styles.css'
+
+const luckiestGuy = Luckiest_Guy({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-luckiest-guy',
+  display: 'swap',
+})
+const fredoka = Fredoka({
+  weight: ['400', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-fredoka',
+  display: 'swap',
+})
+const pressStart = Press_Start_2P({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-press-start',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
@@ -62,19 +82,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600;700&family=Press+Start+2P&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${luckiestGuy.variable} ${fredoka.variable} ${pressStart.variable}`}
+    >
       <body suppressHydrationWarning>{children}</body>
     </html>
   )

@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import type { Achievement } from './AchievementToast'
+import type { Achievement } from '@/components/aventura/achievement-toast'
 
 export function useAchievements() {
   const [current, setCurrent] = useState<Achievement | null>(null)

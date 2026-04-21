@@ -7,7 +7,7 @@ export const EVENT = {
   address: 'Av. Italia 3421, Montevideo',
   dateLabel: 'Domingo 24 de mayo',
   timeLabel: '18:30 a 21:00 hs',
-  dateISO: '2026-05-24T18:30:00',
+  dateISO: '2026-05-24T18:30:00-03:00', // UTC-3 (Montevideo)
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=-34.88619635981311,-56.1403753656917', // Reemplazar por link corto real
   mapsEmbed:

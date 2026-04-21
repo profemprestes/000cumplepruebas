@@ -48,9 +48,9 @@
   --color-grass-green-deep: var(--grass-green-deep);
   --color-night: var(--night);
 
-  --font-display: 'Luckiest Guy', 'Milky Nice', system-ui, sans-serif;
-  --font-body: 'Fredoka', 'Amble', system-ui, sans-serif;
-  --font-pixel: 'Press Start 2P', monospace;
+  --font-display: var(--font-luckiest-guy), system-ui, sans-serif;
+  --font-body: var(--font-fredoka), system-ui, sans-serif;
+  --font-pixel: var(--font-press-start), monospace;
 }
 
 :root {
