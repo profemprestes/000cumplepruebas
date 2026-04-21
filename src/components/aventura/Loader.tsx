@@ -90,7 +90,7 @@ export function Loader({ onStart }: { onStart: () => void }) {
           className="pixel-text text-golden-coin animate-blink mt-12 text-base sm:text-xl"
           aria-label="Empezar aventura"
         >
-          ▶ PRESS START
+          ▶ COMIENZA
         </motion.button>
       )}
     </div>

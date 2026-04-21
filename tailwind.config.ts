@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import animate from 'tailwind-merge' // Para animaciones profesionales
+
 
 export default {
   // En v4, el 'content' se detecta automáticamente, pero lo dejamos
