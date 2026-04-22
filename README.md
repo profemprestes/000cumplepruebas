@@ -34,18 +34,21 @@ Una experiencia interactiva y gamificada diseñada como invitación/misión para
 ### Instalación
 
 1. Clona el repositorio:
+
    ```bash
    git clone <repo-url>
    cd 000cumplepruebas
    ```
 
 2. Instala las dependencias:
+
    ```bash
    pnpm install
    ```
 
 3. Configura las variables de entorno:
    Crea un archivo `.env.local` basado en `.env.example` (si existe) o agrega las siguientes claves:
+
    ```env
    NEXT_PUBLIC_SUPABASE_URL=tu_url_de_supabase
    NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_anon_key
@@ -68,10 +71,12 @@ Una experiencia interactiva y gamificada diseñada como invitación/misión para
 ## 📐 Convenciones de Código
 
 Siguiendo las directrices de `AGENTS.md`:
+
 - **Naming:** Componentes en `kebab-case.tsx`.
 - **Arquitectura:** Todo bajo el directorio `src/`.
 - **Componentes:** Priorizar Server Components; usar `'use client'` solo cuando sea necesario.
 - **UI:** Reutilizar componentes de `src/components/ui/` basados en Radix UI.
 
 ---
-Creado con ❤️ para la **Gran Facu Aventura**.
+
+Creado para la **Gran Facu Aventura**.
