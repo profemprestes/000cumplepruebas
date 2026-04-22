@@ -2,41 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, X, Trophy } from 'lucide-react'
 import { FACU_HERO_IMAGE } from '@/lib/heroes'
-
-type Question = {
-  q: string
-  options: string[]
-  correctIdx: number
-  hint: string
-}
-
-// Trivia sencilla sobre Facu (cumpleañero, Nivel 9)
-const QUESTIONS: Question[] = [
-  {
-    q: '¿Qué nivel desbloquea Facu en este cumple?',
-    options: ['Nivel 7', 'Nivel 8', 'Nivel 9', 'Nivel 10'],
-    correctIdx: 2,
-    hint: 'El nombre de la misión lo grita 😉',
-  },
-  {
-    q: '¿Cuál es el reino favorito de Facu?',
-    options: ['Mario World', 'Hubbearvillage', 'Hyrule', 'Minecraftia'],
-    correctIdx: 1,
-    hint: 'Suena a oso peludo + pueblo.',
-  },
-  {
-    q: '¿Qué hay que llevar SÍ o SÍ a la misión?',
-    options: ['Patines', 'Medias y ropa cómoda', 'Capa de superhéroe', 'Linterna'],
-    correctIdx: 1,
-    hint: 'Pista: KBOOM tiene piso especial.',
-  },
-  {
-    q: '¿Quién es la guía oficial del Reino?',
-    options: ['Baaren', 'Toast', 'Shicka', 'Mirabeja'],
-    correctIdx: 2,
-    hint: 'Te recibió en la cinemática.',
-  },
-]
+import { QUESTIONS } from '@/lib/questions'
 
 export function MiniGames({ onContinue }: { onContinue: (score: number) => void }) {
   const [idx, setIdx] = useState(0)
@@ -120,16 +86,15 @@ export function MiniGames({ onContinue }: { onContinue: (score: number) => void 
         <div className="pixel-text bg-night text-golden-coin border-night mx-auto inline-block rounded-md border-2 px-3 py-1 text-[10px] tracking-widest uppercase shadow-[3px_3px_0_var(--color-night)]">
           Mini-juego · Trivia Facu
         </div>
-        <h2 className="font-display text-night mt-3 text-2xl drop-shadow-[2px_2px_0_#fff] sm:text-4xl">
+        <h2 className="font-display text-white mt-3 text-2xl drop-shadow-[3px_3px_0_var(--color-night)] sm:text-4xl">
           ¿Cuánto sabés?
         </h2>
         <div className="mt-4 flex items-center justify-center gap-2">
           {QUESTIONS.map((_, i) => (
             <span
               key={i}
-              className={`border-night h-3 w-8 rounded-sm border-2 shadow-[2px_2px_0_var(--color-night)] ${
-                i < idx ? 'bg-grass-green' : i === idx ? 'bg-golden-coin' : 'bg-white'
-              }`}
+              className={`border-night h-3 w-8 rounded-sm border-2 shadow-[2px_2px_0_var(--color-night)] ${i < idx ? 'bg-grass-green' : i === idx ? 'bg-golden-coin' : 'bg-white'
+                }`}
             />
           ))}
         </div>
@@ -146,9 +111,9 @@ export function MiniGames({ onContinue }: { onContinue: (score: number) => void 
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.25 }}
-            className="voxel-card bg-white p-5 border-night shadow-[6px_6px_0_var(--color-night)]"
+            className="voxel-card bg-card text-card-foreground p-5"
           >
-            <p className="font-display text-night text-lg leading-snug sm:text-xl">{q.q}</p>
+            <p className="font-display text-lg leading-snug sm:text-xl">{q.q}</p>
             <div className="mt-4 grid gap-2">
               {q.options.map((opt, i) => {
                 const isPicked = picked === i
@@ -180,7 +145,7 @@ export function MiniGames({ onContinue }: { onContinue: (score: number) => void 
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="border-night/30 mt-4 rounded-md border-2 bg-sky-blue/10 p-3 text-xs sm:text-sm"
+                className="border-night/50 mt-4 rounded-md border-2 bg-white/5 p-3 text-xs sm:text-sm"
                 role="status"
                 aria-live="polite"
               >
